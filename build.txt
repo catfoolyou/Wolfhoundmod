@@ -1,0 +1,3 @@
+displayName = Wolfhound's Mod
+author = Catfoolyou
+version = 0.1
