@@ -28,6 +28,8 @@ namespace wolfhoundmod
 	{
             if (!Main.dedServ) {
                 Main.itemTexture[ItemID.Spear] = GetTexture("Items/wooden_spear"); // Now we change it
+		Main.itemTexture[ItemID.IceBlade] = GetTexture("Items/1"); // Now we change it
+		Main.itemTexture[ItemID.Frostbrand] = GetTexture("Items/frostbrand"); // Now we change it
 		Main.itemTexture[ItemID.AdamantiteSword] = GetTexture("Items/adamantite_sword"); // Now we change it
                 //Main.projectileTexture[ProjectileID.Bullet] = GetTexture("Projectiles/shoot"); // Now we change it
             }

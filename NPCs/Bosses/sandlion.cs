@@ -5,6 +5,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
+using wolfhoundmod.Items;
 
 namespace wolfhoundmod.NPCs.Bosses
 {
@@ -24,7 +25,7 @@ namespace wolfhoundmod.NPCs.Bosses
 		aiType = NPCID.SandElemental;
 		npc.boss = true;
 		npc.npcSlots = 5f;
-		npc.lifeMax = 2000;
+		npc.lifeMax = 1500;
 		npc.damage = 12;
 		npc.defense = 9;
 		npc.knockBackResist = 500f;
@@ -32,7 +33,7 @@ namespace wolfhoundmod.NPCs.Bosses
 		npc.lavaImmune = true;
 		npc.noTileCollide = false;
 		npc.noGravity = true;
-		//npc.HitSound = SoundID.NPCHit44;
+		npc.HitSound = SoundID.NPCHit44;
            	npc.DeathSound = SoundID.NPCDeath58;
 		music = MusicID.Boss1;
         }
@@ -60,7 +61,20 @@ namespace wolfhoundmod.NPCs.Bosses
 
         public override void NPCLoot()
         {
-        	
-        }
+        	if (Main.rand.Next(1) == 0)
+            		{
+			int choice = Main.rand.Next(1,4);
+				if(choice == 1)
+					Item.NewItem(npc.getRect(), ModContent.ItemType<dune_splicer>());
+				else if(choice == 2)
+					Item.NewItem(npc.getRect(), ModContent.ItemType<sand_slasher>());
+				else if(choice == 3)
+					Item.NewItem(npc.getRect(), ModContent.ItemType<scarab_bow>());
+			}
+		if (Main.rand.Next(1) == 0)
+            		{
+				Item.NewItem(npc.getRect(), ItemID.AncientBattleArmorMaterial, Main.rand.Next(3, 5));
+			}
+	}
     }
 }
