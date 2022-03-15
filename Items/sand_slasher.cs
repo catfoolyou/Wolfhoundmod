@@ -16,30 +16,27 @@ namespace wolfhoundmod.Items
 		public override void SetDefaults() 
 		{
 			item.damage = 12;
-			item.melee = true;
-			item.width = 66;
-			item.height = 70;
-			item.useTime = 7;
-			item.useAnimation = 20;
 			item.useStyle = 1;
-			item.knockBack = 6;
-			item.value = 10000;
-			item.rare = 9;
-			item.UseSound = SoundID.Item1;
-			item.autoReuse = true;
-			item.shootSpeed = 40f;
-		}
+			item.useAnimation = 18;
+			item.useTime = 30;
+			item.shootSpeed = 14f;
+			item.knockBack = 6.5f;
+			item.width = 32;
+			item.height = 32;
+			item.scale = 1f;
+			item.rare = ItemRarityID.Blue;
+			item.value = Item.sellPrice(gold: 5);
 
-		public override void MeleeEffects(Player player, Rectangle hitbox) {
-           		 if (Main.rand.NextBool(3)) {
-               			//Emit dusts when the sword is swun
-				Dust.NewDust(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, 226, 0f, 0f, 1, default(Color), 0.5f);
-            		}
-       		}
+			item.melee = true;
+			item.autoReuse = true; // Most spears don't autoReuse, but it's possible when used in conjunction with CanUseItem()
+
+			item.UseSound = SoundID.Item1;
+			item.shoot = 660;
+		}
 
 		public override void OnHitNPC(Player player, NPC target, int damage, float knockback, bool crit) {
 	
-			target.AddBuff(BuffID.Electrified, 60);
+			target.AddBuff(BuffID.Electrified, 240);
 		}		
 	}
 }

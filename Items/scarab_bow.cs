@@ -31,15 +31,6 @@ namespace wolfhoundmod.Items
 			item.useAmmo = AmmoID.Arrow;
 			item.shoot = 1;
 			item.shootSpeed = 7.5f;
-		}
-
-		public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
-		{
-			if (type == ProjectileID.WoodenArrowFriendly)
-			{
-				type = ProjectileID.BoneDagger;
-			}
-			return true; // return true to allow tmodloader to call Projectile.NewProjectile as normal
 		}		
 	}
 }

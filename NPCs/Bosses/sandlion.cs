@@ -1,7 +1,7 @@
 using System;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.GameContent.Events;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
@@ -21,13 +21,16 @@ namespace wolfhoundmod.NPCs.Bosses
 
         public override void SetDefaults()
         {
-		npc.CloneDefaults(NPCID.SandElemental);
-		aiType = NPCID.SandElemental;
+		npc.CloneDefaults(NPCID.Vulture);
+		aiType = NPCID.Vulture;
+		animationType = NPCID.Wraith;
 		npc.boss = true;
 		npc.npcSlots = 5f;
 		npc.lifeMax = 1500;
 		npc.damage = 12;
 		npc.defense = 9;
+		npc.width = 64;
+		npc.height = 64;
 		npc.knockBackResist = 500f;
 		npc.value = Item.buyPrice(gold: 10);
 		npc.lavaImmune = true;

@@ -13,7 +13,7 @@ namespace wolfhoundmod.Items
 		}
 
 		public override void SetDefaults() {
-			item.damage = 12;
+			item.damage = 20;
 			item.magic = true;
 			item.mana = 5;
 			item.width = 40;

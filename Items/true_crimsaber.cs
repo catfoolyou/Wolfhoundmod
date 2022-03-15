@@ -16,12 +16,12 @@ namespace wolfhoundmod.Items
 			item.useStyle = 1;
 			item.useAnimation = 18;
 			item.useTime = 30;
-			item.shootSpeed = 3.7f;
+			item.shootSpeed = 42f;
 			item.knockBack = 6.5f;
 			item.width = 32;
 			item.height = 32;
 			item.scale = 1f;
-			item.rare = ItemRarityID.Blue;
+			item.rare = ItemRarityID.Pink;
 			item.value = Item.sellPrice(gold: 5);
 
 			item.melee = true;

@@ -10,14 +10,6 @@ namespace wolfhoundmod
 {
     public class ModGlobalNPC : GlobalNPC
     {
-	public override void SetupShop(int type, Chest shop, ref int nextSlot) {
-		if (type == NPCID.Merchant) {
-			if (NPC.downedBoss2){
-			shop.item[nextSlot].SetDefaults(ModContent.ItemType<coal>());
-			nextSlot++;
-			}
-			}	
-		}
 
         public override void NPCLoot(NPC npc)
         {
