@@ -1,7 +1,7 @@
 using System; 
 using Microsoft.Xna.Framework; 
 using wolfhoundmod.Items; 
-using wolfhoundmod.Projectiles; 
+using wolfhoundmod.Items.Armor;
 using Terraria; 
 using Terraria.ID; 
 using Terraria.Localization; 
@@ -135,15 +135,13 @@ namespace wolfhoundmod.NPCs
 		}
 	
 	public override void SetupShop(Chest shop, ref int nextSlot) {
-		shop.item[nextSlot].SetDefaults(mod.ItemType("sand_slasher"));
-		nextSlot++;
-		shop.item[nextSlot].SetDefaults(mod.ItemType("scarab_bow"));
-		nextSlot++;
-		shop.item[nextSlot].SetDefaults(mod.ItemType("dune_splicer"));
-		nextSlot++;
 		shop.item[nextSlot].SetDefaults(ItemID.WoodenArrow);
 		nextSlot++;
 		shop.item[nextSlot].SetDefaults(ItemID.Torch);
+		nextSlot++;
+		shop.item[nextSlot].SetDefaults(ItemID.IronPickaxe);
+		nextSlot++;
+		shop.item[nextSlot].SetDefaults(ItemID.IronAxe);
 		nextSlot++;
 		shop.item[nextSlot].SetDefaults(ItemID.ManaPotion);
 		nextSlot++;
@@ -151,8 +149,34 @@ namespace wolfhoundmod.NPCs
 		nextSlot++;
 		shop.item[nextSlot].SetDefaults(ItemID.MagicMirror);
 		nextSlot++;
+		shop.item[nextSlot].SetDefaults(mod.ItemType("sand_slasher"));
+		nextSlot++;
+		shop.item[nextSlot].SetDefaults(mod.ItemType("scarab_bow"));
+		nextSlot++;
+		shop.item[nextSlot].SetDefaults(mod.ItemType("dune_splicer"));
+		nextSlot++;
 		if (NPC.downedBoss2){
 			shop.item[nextSlot].SetDefaults(ModContent.ItemType<coal>());
+			nextSlot++;
+			}
+		if (NPC.downedBoss1){
+			shop.item[nextSlot].SetDefaults(ModContent.ItemType<wolf_hood>());
+			nextSlot++;
+			shop.item[nextSlot].SetDefaults(ModContent.ItemType<wolf_chestplate>());
+			nextSlot++;
+			shop.item[nextSlot].SetDefaults(ModContent.ItemType<wolf_leggings>());
+			nextSlot++;
+			shop.item[nextSlot].SetDefaults(ModContent.ItemType<leather_hat>());
+			nextSlot++;
+			shop.item[nextSlot].SetDefaults(ModContent.ItemType<leather_shirt>());
+			nextSlot++;
+			shop.item[nextSlot].SetDefaults(ModContent.ItemType<leather_pants>());
+			nextSlot++;
+			}
+		if (Main.hardMode){
+			shop.item[nextSlot].SetDefaults(ItemID.AncientBattleArmorMaterial);
+			nextSlot++;
+			shop.item[nextSlot].SetDefaults(ItemID.FrostCore);
 			nextSlot++;
 			}
 		

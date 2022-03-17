@@ -31,6 +31,8 @@ namespace wolfhoundmod
 		Main.itemTexture[ItemID.IceBlade] = GetTexture("Items/1"); // Now we change it
 		Main.itemTexture[ItemID.Frostbrand] = GetTexture("Items/frostbrand"); // Now we change it
 		Main.itemTexture[ItemID.AdamantiteSword] = GetTexture("Items/adamantite_sword"); // Now we change it
+		Main.itemTexture[ItemID.InfluxWaver] = GetTexture("Items/influx_waver"); // Now we change it
+		Main.itemTexture[ItemID.EnchantedSword] = GetTexture("Items/enchanted_sword"); // Now we change it
                 //Main.projectileTexture[ProjectileID.Bullet] = GetTexture("Projectiles/shoot"); // Now we change it
             }
         }
@@ -171,6 +173,14 @@ namespace wolfhoundmod
 			recipe.AddIngredient((ItemID.SoulofLight), 10);
             		recipe.AddTile(134);
             		recipe.SetResult(ItemID.BeamSword);
+            		recipe.AddRecipe(); 
+	
+			recipe = new ModRecipe(this);
+			recipe.anyWood = true;
+	  		recipe.AddIngredient(ItemID.Wood);
+			recipe.AddIngredient(ModContent.ItemType<coal>());
+            		//recipe.AddTile(TileID.Workbenches);
+            		recipe.SetResult((ItemID.Torch), 3);
             		recipe.AddRecipe(); 
 		}	    
 	}

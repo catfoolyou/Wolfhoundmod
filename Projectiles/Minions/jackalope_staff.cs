@@ -24,7 +24,7 @@ namespace wolfhoundmod.Projectiles.Minions.jackalope
 	{
 		public override void SetDefaults() {
 			DisplayName.SetDefault("Baby jackalope_minion");
-			Description.SetDefault("The Baby jackalope_minion will fight for you");
+			Description.SetDefault("The Baby Jackalope will fight for you");
 			Main.buffNoSave[Type] = true;
 			Main.buffNoTimeDisplay[Type] = true;
 		}
