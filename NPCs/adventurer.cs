@@ -149,17 +149,17 @@ namespace wolfhoundmod.NPCs
 		nextSlot++;
 		shop.item[nextSlot].SetDefaults(ItemID.MagicMirror);
 		nextSlot++;
-		shop.item[nextSlot].SetDefaults(mod.ItemType("sand_slasher"));
-		nextSlot++;
-		shop.item[nextSlot].SetDefaults(mod.ItemType("scarab_bow"));
-		nextSlot++;
-		shop.item[nextSlot].SetDefaults(mod.ItemType("dune_splicer"));
-		nextSlot++;
 		if (NPC.downedBoss2){
 			shop.item[nextSlot].SetDefaults(ModContent.ItemType<coal>());
 			nextSlot++;
 			}
 		if (NPC.downedBoss1){
+			shop.item[nextSlot].SetDefaults(mod.ItemType("sand_slasher"));
+			nextSlot++;
+			shop.item[nextSlot].SetDefaults(mod.ItemType("scarab_bow"));
+			nextSlot++;
+			shop.item[nextSlot].SetDefaults(mod.ItemType("dune_splicer"));
+			nextSlot++;
 			shop.item[nextSlot].SetDefaults(ModContent.ItemType<wolf_hood>());
 			nextSlot++;
 			shop.item[nextSlot].SetDefaults(ModContent.ItemType<wolf_chestplate>());

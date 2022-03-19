@@ -30,7 +30,7 @@ namespace wolfhoundmod.NPCs.Bosses
 		npc.damage = 12;
 		npc.boss = true;
             	npc.defense = 6;
-           	npc.knockBackResist = 0.2f;
+           	npc.knockBackResist = 9999f;
             	npc.width = 32;
             	npc.height = 54;
             	npc.aiStyle = -1;

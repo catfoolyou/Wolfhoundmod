@@ -20,9 +20,7 @@ namespace wolfhoundmod
 	public class wolfhoundmod : Mod
 	{
 
-	Texture2D originalSpearTexture;
-	Texture2D originalSpearProj;
-	Texture2D originalBullet; 
+	public static Mod TerrariaOverhaul;
 
 	public override void Load() 
 	{
@@ -35,6 +33,16 @@ namespace wolfhoundmod
 		Main.itemTexture[ItemID.EnchantedSword] = GetTexture("Items/enchanted_sword"); // Now we change it
                 //Main.projectileTexture[ProjectileID.Bullet] = GetTexture("Projectiles/shoot"); // Now we change it
             }
+        }
+
+	public override void PostSetupContent()
+        {
+		TerrariaOverhaul = ModLoader.GetMod("TerrariaOverhaul");
+	}
+
+	public override void Unload()
+        {
+        	TerrariaOverhaul = null;					
         }
 
 		public override void AddRecipes() 

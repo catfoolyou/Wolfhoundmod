@@ -25,11 +25,11 @@ namespace wolfhoundmod.Projectiles
 			projectile.ownerHitCheck = true; //so you can't hit enemies through walls
 			projectile.melee = true;
 		}
-public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+/*public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
 {
 //3a: target.immune[projectile.owner] = 20;
 //3b: target.immune[projectile.owner] = 5;
-}
+}*/
 
 public override Color? GetAlpha(Color lightColor)
 {

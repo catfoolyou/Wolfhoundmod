@@ -12,7 +12,8 @@ namespace wolfhoundmod.Accessories
 
 		public override void SetStaticDefaults() 
 		{
-			DisplayName.SetDefault("Fledgling wings"); // By default, capitalization in classnames will add spaces to the display name. You can customize the display name here by uncommenting this line.
+			DisplayName.SetDefault("Fledgling wings");
+			 Tooltip.SetDefault("Allows flight and slow fall");
 		}
 		public override void SetDefaults()
 		{
@@ -25,7 +26,7 @@ namespace wolfhoundmod.Accessories
 
 		public override void UpdateAccessory(Player player, bool hideVisual)
 		{
-			player.wingTimeMax = 18; //wings Height
+			player.wingTimeMax = 30; //wings Height
 		}
 
 		public override void VerticalWingSpeeds(Player player, ref float ascentWhenFalling, ref float ascentWhenRising, ref float maxCanAscendMultiplier, ref float maxAscentMultiplier, ref float constantAscend)
