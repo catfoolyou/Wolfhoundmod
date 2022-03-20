@@ -23,7 +23,7 @@ namespace wolfhoundmod.Projectiles.Minions.jackalope
 	public class jackalope : ModBuff
 	{
 		public override void SetDefaults() {
-			DisplayName.SetDefault("Baby jackalope_minion");
+			DisplayName.SetDefault("Baby jackalope minion");
 			Description.SetDefault("The Baby Jackalope will fight for you");
 			Main.buffNoSave[Type] = true;
 			Main.buffNoTimeDisplay[Type] = true;
@@ -44,7 +44,7 @@ namespace wolfhoundmod.Projectiles.Minions.jackalope
 	{
 		public override void SetStaticDefaults() {
 			DisplayName.SetDefault("Jackalope Staff");
-			Tooltip.SetDefault("Summons a Baby jackalope_minion to fight for you");
+			Tooltip.SetDefault("Summons a Baby jackalope minion to fight for you");
 			ItemID.Sets.GamepadWholeScreenUseRange[item.type] = true; // This lets the player target anywhere on the whole screen while using a controller.
 			ItemID.Sets.LockOnIgnoresCollision[item.type] = true;
 		}
@@ -59,7 +59,7 @@ namespace wolfhoundmod.Projectiles.Minions.jackalope
 			item.useAnimation = 36;
 			item.useStyle = ItemUseStyleID.SwingThrow;
 			item.value = Item.buyPrice(0, 30, 0, 0);
-			item.rare = ItemRarityID.Cyan;
+			item.rare = ItemRarityID.Green;
 			item.UseSound = SoundID.Item44;
 
 			// These below are needed for a minion weapon

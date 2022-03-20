@@ -4,33 +4,21 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace wolfhoundmod.Projectiles.Minions.finch
+namespace wolfhoundmod.Projectiles.Minions.antlion
 {
-	/*
-	 * This file contains all the code necessary for a minion
-	 * - ModItem
-	 *     the weapon which you use to summon the minion with
-	 * - ModBuff
-	 *     the icon you can click on to despawn the minion
-	 * - ModProjectile 
-	 *     the minion itself
-	 *     
-	 * It is not recommended to put all these classes in the same file. For demonstrations sake they are all compacted together so you get a better overwiew.
-	 * To get a better understanding of how everything works together, and how to code minion AI, read the guide: https://github.com/tModLoader/tModLoader/wiki/Basic-Minion-Guide
-	 * This is NOT an in-depth guide to advanced minion AI
-	 */
+	
 
-	public class baby_finch : ModBuff
+	public class antlion_buff : ModBuff
 	{
 		public override void SetDefaults() {
-			DisplayName.SetDefault("Baby Finch");
-			Description.SetDefault("The Baby Finch will fight for you");
+			DisplayName.SetDefault("Antlion minion");
+			Description.SetDefault("Carl the Antlion will fight for you");
 			Main.buffNoSave[Type] = true;
 			Main.buffNoTimeDisplay[Type] = true;
 		}
 
 		public override void Update(Player player, ref int buffIndex) {
-			if (player.ownedProjectileCounts[ModContent.ProjectileType<finch>()] > 0) {
+			if (player.ownedProjectileCounts[ModContent.ProjectileType<antlion>()] > 0) {
 				player.buffTime[buffIndex] = 18000;
 			}
 			else {
@@ -40,34 +28,34 @@ namespace wolfhoundmod.Projectiles.Minions.finch
 		}
 	}
 
-	public class finch_staff : ModItem
+	public class antlion_staff : ModItem
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("Finch Staff");
-			Tooltip.SetDefault("Summons a Baby Finch to fight for you");
+			DisplayName.SetDefault("Antlion Staff");
+			Tooltip.SetDefault("Summons an Antlion to fight for you");
 			ItemID.Sets.GamepadWholeScreenUseRange[item.type] = true; // This lets the player target anywhere on the whole screen while using a controller.
 			ItemID.Sets.LockOnIgnoresCollision[item.type] = true;
 		}
 
 		public override void SetDefaults() {
-			item.damage = 10;
+			item.damage = 15;
 			item.knockBack = 3f;
-			item.mana = 10;
+			item.mana = 12;
 			item.width = 32;
 			item.height = 32;
 			item.useTime = 36;
 			item.useAnimation = 36;
 			item.useStyle = ItemUseStyleID.SwingThrow;
 			item.value = Item.buyPrice(0, 30, 0, 0);
-			item.rare = ItemRarityID.Blue;
+			item.rare = ItemRarityID.Green;
 			item.UseSound = SoundID.Item44;
 
 			// These below are needed for a minion weapon
 			item.noMelee = true;
 			item.summon = true;
-			item.buffType = ModContent.BuffType<baby_finch>();
+			item.buffType = ModContent.BuffType<antlion_buff>();
 			// No buffTime because otherwise the item tooltip would say something like "1 minute duration"
-			item.shoot = ModContent.ProjectileType<finch>();
+			item.shoot = ModContent.ProjectileType<antlion>();
 		}
 
 		public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack) {
@@ -79,16 +67,6 @@ namespace wolfhoundmod.Projectiles.Minions.finch
 			return true;
 		}
 
-		public override void AddRecipes() {
-			ModRecipe recipe = new ModRecipe(mod);
-			recipe.anyWood = true;
-                        recipe.AddIngredient(ItemID.Wood, 10);
-			recipe.AddIngredient(ItemID.Daybloom, 10);
-			recipe.AddIngredient(ItemID.Bird);
-			recipe.AddTile(TileID.WorkBenches);
-			recipe.SetResult(this);
-			recipe.AddRecipe();
-		}
 	}
 
 	/*
@@ -97,12 +75,12 @@ namespace wolfhoundmod.Projectiles.Minions.finch
 	 * If the player targets a certain NPC with right-click, it will fly through tiles to it
 	 * If it isn't attacking, it will float near the player with minimal movement
 	 */
-	public class finch : ModProjectile
+	public class antlion : ModProjectile
 	{
 		public override void SetStaticDefaults() {
 			DisplayName.SetDefault("minion");
 			// Sets the amount of frames this minion has on its spritesheet
-			Main.projFrames[projectile.type] = 4;
+			Main.projFrames[projectile.type] = 6;
 			// This is necessary for right-click targeting
 			ProjectileID.Sets.MinionTargettingFeature[projectile.type] = true;
 
@@ -117,10 +95,11 @@ namespace wolfhoundmod.Projectiles.Minions.finch
 
 		public sealed override void SetDefaults() {
 			projectile.width = 18;
-			projectile.height = 28;
+			projectile.height = 30;
 			// Move through tiles?
 			projectile.tileCollide = true;
-
+			projectile.aiStyle = 26;
+			aiType = ProjectileID.Puppy;
 			// These below are needed for a minion weapon
 			// Only controls if it deals damage to enemies on contact (more on that later)
 			projectile.friendly = true;
@@ -148,9 +127,9 @@ namespace wolfhoundmod.Projectiles.Minions.finch
 			#region Active check
 			// This is the "active check", makes sure the minion is alive while the player is alive, and despawns if not
 			if (player.dead || !player.active) {
-				player.ClearBuff(ModContent.BuffType<baby_finch>());
+				player.ClearBuff(ModContent.BuffType<antlion_buff>());
 			}
-			if (player.HasBuff(ModContent.BuffType<baby_finch>())) {
+			if (player.HasBuff(ModContent.BuffType<antlion_buff>())) {
 				projectile.timeLeft = 2;
 			}
 			#endregion

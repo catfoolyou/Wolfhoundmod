@@ -34,9 +34,9 @@ namespace wolfhoundmod.Items
 				item.autoReuse = true;
 			}
 
-			if (item.type == ItemID.Arkhalis) { // Overhaul fix check
+			/*if (item.type == ItemID.Arkhalis) { // Overhaul fix check
 				item.shoot = 595;
-			}
+			}*/
 
 			if (item.type == ItemID.GoldShortsword) { // Here we make sure to only change Gold Shortsword by checking item.type in an if statement
 				item.useStyle = ItemUseStyleID.HoldingOut;

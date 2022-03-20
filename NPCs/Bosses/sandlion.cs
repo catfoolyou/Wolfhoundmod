@@ -7,6 +7,8 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using wolfhoundmod.Items;
 using wolfhoundmod.Projectiles;
+using wolfhoundmod.Projectiles.Minions;
+using wolfhoundmod.Projectiles.Minions.antlion;
 
 namespace wolfhoundmod.NPCs.Bosses
 {
@@ -106,19 +108,20 @@ namespace wolfhoundmod.NPCs.Bosses
         {
         	if (Main.rand.Next(1) == 0)
             		{
-			int choice = Main.rand.Next(1,4);
+			int choice = Main.rand.Next(1,5);
 				if(choice == 1)
 					Item.NewItem(npc.getRect(), ModContent.ItemType<dune_splicer>());
 				else if(choice == 2)
 					Item.NewItem(npc.getRect(), ModContent.ItemType<sand_slasher>());
 				else if(choice == 3)
 					Item.NewItem(npc.getRect(), ModContent.ItemType<scarab_bow>());
+				else if(choice == 4)
+					Item.NewItem(npc.getRect(), ModContent.ItemType<antlion_staff>());
 			}
-		if (Main.rand.Next(4) == 0)
+		if (Main.rand.Next(1) == 0)
             		{
-				Item.NewItem(npc.getRect(), ItemID.AntlionClaw);
-				Item.NewItem(npc.getRect(), ItemID.SandstorminaBottle);
-				Item.NewItem(npc.getRect(), ItemID.FlyingCarpet);
+				Item.NewItem(npc.getRect(), ItemID.DesertFossil, Main.rand.Next(10, 30));
+				Item.NewItem(npc.getRect(), ItemID.Amber, Main.rand.Next(5, 8));
 			}
 	}
     }
