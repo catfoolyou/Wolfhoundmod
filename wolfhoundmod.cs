@@ -31,13 +31,14 @@ namespace wolfhoundmod
 		Main.itemTexture[ItemID.AdamantiteSword] = GetTexture("Items/adamantite_sword"); // Now we change it
 		Main.itemTexture[ItemID.InfluxWaver] = GetTexture("Items/influx_waver"); // Now we change it
 		Main.itemTexture[ItemID.EnchantedSword] = GetTexture("Items/enchanted_sword"); // Now we change it
+		Main.itemTexture[ItemID.SDMG] = GetTexture("Items/sdmg"); // Now we change it
                 //Main.projectileTexture[ProjectileID.Bullet] = GetTexture("Projectiles/shoot"); // Now we change it
             }
         }
 
 	public override void PostSetupContent()
         {
-		TerrariaOverhaul = ModLoader.GetMod("TerrariaOverhaul");
+		Mod TerrariaOverhaul = ModLoader.GetMod("TerrariaOverhaul");
 	}
 
 	public override void Unload()

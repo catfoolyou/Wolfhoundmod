@@ -20,6 +20,11 @@ namespace wolfhoundmod.Items.Armor
 			item.value = 10000;
 			item.rare = 2;
 		}
+
+		public override bool IsArmorSet(Item head, Item body, Item legs) {
+			return body.type == ModContent.ItemType<leather_shirt>() && legs.type == ModContent.ItemType<leather_pants>();
+		}
+
 		public override void UpdateEquip(Player player)
      		{
 			player.minionDamage += 0.01f;

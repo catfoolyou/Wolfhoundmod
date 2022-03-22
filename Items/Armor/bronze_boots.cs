@@ -10,7 +10,7 @@ namespace wolfhoundmod.Items.Armor
 	{
 		public override void SetStaticDefaults() 
 		{
-			DisplayName.SetDefault("Bronze Boots");
+			DisplayName.SetDefault("Bronze Greaves");
 			Tooltip.SetDefault("+4% movement speed");
 		}
 

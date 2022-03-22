@@ -19,7 +19,7 @@ namespace wolfhoundmod.NPCs.Bosses
 
 	 public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Mountain King");
+            DisplayName.SetDefault("The Mountain King");
             Main.npcFrameCount[npc.type] = 4;
         }
 
@@ -100,7 +100,27 @@ namespace wolfhoundmod.NPCs.Bosses
 
         public override void NPCLoot()
         {
-       		
+		if (Main.rand.Next(1) == 0)
+            		{
+			int choice = Main.rand.Next(1,5);
+				if(choice == 1)
+					Item.NewItem(npc.getRect(), ItemID.BoneSword);
+				else if(choice == 2)
+					Item.NewItem(npc.getRect(), ItemID.BonePickaxe);
+				else if(choice == 3)
+					Item.NewItem(npc.getRect(), ItemID.MagicLantern);
+				else if(choice == 4)
+					Item.NewItem(npc.getRect(), ItemID.ChainKnife);
+			}
+		if (Main.rand.Next(1) == 0)
+            		{
+				Item.NewItem(npc.getRect(), ModContent.ItemType<scandium_ore>(), Main.rand.Next(100, 150));
+				Item.NewItem(npc.getRect(), ItemID.Amethyst, Main.rand.Next(5, 8));
+			}
+		if (Main.rand.Next(10) == 0)
+            		{
+				Item.NewItem(npc.getRect(), ItemID.Arkhalis);
+			}
 	}
     }
 }

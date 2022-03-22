@@ -120,7 +120,7 @@ namespace wolfhoundmod.NPCs.Bosses
 			}
 		if (Main.rand.Next(1) == 0)
             		{
-				Item.NewItem(npc.getRect(), ItemID.DesertFossil, Main.rand.Next(10, 30));
+				Item.NewItem(npc.getRect(), ItemID.FossilOre, Main.rand.Next(10, 30));
 				Item.NewItem(npc.getRect(), ItemID.Amber, Main.rand.Next(5, 8));
 			}
 	}

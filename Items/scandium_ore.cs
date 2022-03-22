@@ -17,7 +17,14 @@ namespace wolfhoundmod.Items
             item.maxStack = 99;
             item.value = 100;
             item.rare = 1;
-            // Set other item.X values here
+           item.useStyle = ItemUseStyleID.SwingThrow;
+		item.useTurn = true;
+		item.useAnimation = 15;
+		item.useTime = 10;
+		item.autoReuse = true;
+		item.consumable = true;
+		item.createTile = ModContent.TileType<Tiles.scandium_ore1>();
+		item.placeStyle = 0;
         }
 
         public override void AddRecipes()

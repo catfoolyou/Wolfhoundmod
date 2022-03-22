@@ -23,6 +23,7 @@ namespace wolfhoundmod.Items.Armor
  		public override void UpdateEquip(Player player)
      		{
          		player.magicDamage += 0.02f;
+			player.statManaMax2 += 20;
       		}
 
 		public override void AddRecipes() 

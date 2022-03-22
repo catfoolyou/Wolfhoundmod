@@ -19,6 +19,7 @@ namespace wolfhoundmod.Items
             item.value = 100;
             item.rare = 1;
             item.useTurn = true;
+			item.useStyle = ItemUseStyleID.SwingThrow;
 			item.useAnimation = 15;
 			item.useTime = 10;
 			item.autoReuse = true;

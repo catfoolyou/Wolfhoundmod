@@ -1,34 +1,29 @@
 using Terraria.ID;
-using Terraria.ModLoader;
 using Terraria;
+using Terraria.ModLoader;
 
 namespace wolfhoundmod.Items.Armor
 {
-	[AutoloadEquip(EquipType.Legs)]
+	[AutoloadEquip(EquipType.Body)]
 	
-	public class steel_boots : ModItem
+	public class scandium_chestplate : ModItem
 	{
 		public override void SetStaticDefaults() 
 		{
-			DisplayName.SetDefault("Steel Greaves");
-			Tooltip.SetDefault("+4% movement speed");
+			DisplayName.SetDefault("Scandium Chainmail");
 		}
 
 		public override void SetDefaults() 
 		{
-			item.defense = 6;
+			item.defense = 5;
 			item.value = 10000;
 			item.rare = 2;
 		}
-		public override void UpdateEquip(Player player)
-     		{
-			player.moveSpeed += 0.04f;
-      		}
 
 		public override void AddRecipes() 
 		{
 			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(mod.GetItem("steel_bar"), 25);
+			recipe.AddIngredient(mod.GetItem("scandium_bar"), 30);
 			recipe.AddTile(TileID.WorkBenches);
 			recipe.SetResult(this);
 			recipe.AddRecipe();

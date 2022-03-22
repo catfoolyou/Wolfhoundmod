@@ -6,29 +6,24 @@ namespace wolfhoundmod.Items.Armor
 {
 	[AutoloadEquip(EquipType.Legs)]
 	
-	public class steel_boots : ModItem
+	public class scandium_boots : ModItem
 	{
 		public override void SetStaticDefaults() 
 		{
-			DisplayName.SetDefault("Steel Greaves");
-			Tooltip.SetDefault("+4% movement speed");
+			DisplayName.SetDefault("Scandium Greaves");
 		}
 
 		public override void SetDefaults() 
 		{
-			item.defense = 6;
+			item.defense = 4;
 			item.value = 10000;
 			item.rare = 2;
 		}
-		public override void UpdateEquip(Player player)
-     		{
-			player.moveSpeed += 0.04f;
-      		}
-
+	
 		public override void AddRecipes() 
 		{
 			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(mod.GetItem("steel_bar"), 25);
+			recipe.AddIngredient(mod.GetItem("scandium_bar"), 25);
 			recipe.AddTile(TileID.WorkBenches);
 			recipe.SetResult(this);
 			recipe.AddRecipe();

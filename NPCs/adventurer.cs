@@ -154,6 +154,8 @@ namespace wolfhoundmod.NPCs
 			nextSlot++;
 			}
 		if (NPC.downedBoss1){
+			shop.item[nextSlot].SetDefaults(ItemID.WoodenCrate);
+			nextSlot++;
 			shop.item[nextSlot].SetDefaults(mod.ItemType("sand_slasher"));
 			nextSlot++;
 			shop.item[nextSlot].SetDefaults(mod.ItemType("scarab_bow"));
@@ -171,6 +173,10 @@ namespace wolfhoundmod.NPCs
 			shop.item[nextSlot].SetDefaults(ModContent.ItemType<leather_shirt>());
 			nextSlot++;
 			shop.item[nextSlot].SetDefaults(ModContent.ItemType<leather_pants>());
+			nextSlot++;
+			}
+		if (NPC.downedBoss3){
+			shop.item[nextSlot].SetDefaults(ItemID.IronCrate);
 			nextSlot++;
 			}
 		if (Main.hardMode){

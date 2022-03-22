@@ -31,6 +31,6 @@ namespace wolfhoundmod.Items
 			item.useAmmo = AmmoID.Arrow;
 			item.shoot = 1;
 			item.shootSpeed = 7.5f;
-		}		
+		}
 	}
 }

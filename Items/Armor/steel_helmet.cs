@@ -20,6 +20,11 @@ namespace wolfhoundmod.Items.Armor
 			item.value = 10000;
 			item.rare = 2;
 		}
+
+		public override bool IsArmorSet(Item head, Item body, Item legs) {
+			return body.type == ModContent.ItemType<steel_chestplate>() && legs.type == ModContent.ItemType<steel_boots>();
+		}
+
 		public override void UpdateEquip(Player player)
      		{
 			player.rangedDamage += 0.02f;

@@ -19,7 +19,7 @@ namespace wolfhoundmod.NPCs
 			npc.DeathSound = SoundID.NPCHit2;
 			npc.damage = 14;
 			npc.defense = 6;
-			npc.lifeMax = 50;
+			npc.lifeMax = 1;
 		}
 		
 	}

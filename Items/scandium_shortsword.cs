@@ -14,7 +14,7 @@ namespace wolfhoundmod.Items
 
 		public override void SetDefaults() 
 		{
-			item.damage = 14;
+			item.damage = 13;
 			item.useStyle = ItemUseStyleID.HoldingOut;
 			item.useAnimation = 18;
 			item.useTime = 50;
