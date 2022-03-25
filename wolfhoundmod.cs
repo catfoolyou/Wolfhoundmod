@@ -38,7 +38,7 @@ namespace wolfhoundmod
 
 	public override void PostSetupContent()
         {
-		Mod TerrariaOverhaul = ModLoader.GetMod("TerrariaOverhaul");
+		TerrariaOverhaul = ModLoader.GetMod("TerrariaOverhaul");
 	}
 
 	public override void Unload()

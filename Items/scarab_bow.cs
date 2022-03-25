@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using TerrariaOverhaul;
 
 namespace wolfhoundmod.Items
 {
@@ -32,5 +33,11 @@ namespace wolfhoundmod.Items
 			item.shoot = 1;
 			item.shootSpeed = 7.5f;
 		}
+
+		public void OverhaulInit()
+        	{
+            		//this.SetTag("bow");
+        	}
+
 	}
 }

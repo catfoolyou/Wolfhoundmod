@@ -32,7 +32,7 @@ namespace wolfhoundmod.NPCs.Bosses
 		npc.damage = 12;
 		npc.boss = true;
             	npc.defense = 6;
-           	npc.knockBackResist = 9999f;
+           	npc.knockBackResist = 0f;
             	npc.width = 32;
             	npc.height = 54;
             	npc.aiStyle = -1;
@@ -94,6 +94,22 @@ namespace wolfhoundmod.NPCs.Bosses
 			NPC.NewNPC((int)spawnAt.X, (int)spawnAt.Y, NPCID.FlyingAntlion);
 
 		}
+
+		if (npc.life <= 1) // gore
+            	{
+                for (int k = 0; k < 20; k++)
+                {
+                    Dust.NewDust(npc.position, npc.width, npc.height, 151, 2.5f * (float)hitDirection, -2.5f, 0, default(Color), 0.7f);
+                }
+                Gore.NewGore(npc.position, npc.velocity, GoreID.DesertBeast1, 1f);
+		Gore.NewGore(npc.position, npc.velocity, GoreID.DesertBeast2, 1f);
+                Gore.NewGore(npc.position, npc.velocity, GoreID.DesertBeast3, 1f);
+		Gore.NewGore(npc.position, npc.velocity, GoreID.DesertBeast4, 1f);
+		Gore.NewGore(npc.position, npc.velocity, GoreID.DesertBeast1, 1f);
+		Gore.NewGore(npc.position, npc.velocity, GoreID.DesertBeast2, 1f);
+                Gore.NewGore(npc.position, npc.velocity, GoreID.DesertBeast3, 1f);
+		Gore.NewGore(npc.position, npc.velocity, GoreID.DesertBeast4, 1f);
+            }
 		
 	}
 

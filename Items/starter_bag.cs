@@ -24,7 +24,7 @@ namespace wolfhoundmod.Items
 			return true;
 		}
 
-		public override void OpenBossBag(Player player) {
+		public override void RightClick(Player player) { // OpenBossBag
 			player.QuickSpawnItem(ItemID.TinBroadsword);
 			player.QuickSpawnItem(ItemID.WoodenBow);
 			player.QuickSpawnItem((ItemID.WoodenArrow), 100);

@@ -31,7 +31,7 @@ namespace wolfhoundmod.NPCs.Bosses
 		npc.aiStyle = -1;
 		npc.boss = true;
             	npc.defense = 12;
-           	npc.knockBackResist = 9999f;
+           	npc.knockBackResist = 0f;
             	npc.width = 32;
             	npc.height = 54;
             	npc.aiStyle = -1;
@@ -39,6 +39,9 @@ namespace wolfhoundmod.NPCs.Bosses
             	npc.HitSound = SoundID.NPCHit52;
             	npc.noGravity = true;
             	npc.buffImmune[31] = true;
+		npc.buffImmune[24] = true;
+		npc.buffImmune[44] = true;
+		npc.buffImmune[20] = true;
             	npc.noTileCollide = true;
             	npc.DeathSound = SoundID.NPCDeath6;
 		npc.value = Item.buyPrice(0, 0, 5, 0);
@@ -58,6 +61,21 @@ namespace wolfhoundmod.NPCs.Bosses
 			NPC.NewNPC((int)spawnAt.X, (int)spawnAt.Y, NPCID.GraniteFlyer);
 
 		}
+		/*if (npc.life <= 0)
+            	{
+                for (int k = 0; k < 20; k++)
+                {
+                    Dust.NewDust(npc.position, npc.width, npc.height, 151, 2.5f * (float)hitDirection, -2.5f, 0, default(Color), 0.7f);
+                }
+                Gore.NewGore(npc.position, npc.velocity, GoreID.DesertBeast1, 1f);
+		Gore.NewGore(npc.position, npc.velocity, GoreID.DesertBeast2, 1f);
+                Gore.NewGore(npc.position, npc.velocity, GoreID.DesertBeast3, 1f);
+		Gore.NewGore(npc.position, npc.velocity, GoreID.DesertBeast4, 1f);
+		Gore.NewGore(npc.position, npc.velocity, GoreID.DuneSplicerHead, 1f);
+		Gore.NewGore(npc.position, npc.velocity, GoreID.DuneSplicerBody, 1f);
+                Gore.NewGore(npc.position, npc.velocity, GoreID.DuneSplicerHead, 1f);
+		Gore.NewGore(npc.position, npc.velocity, GoreID.DuneSplicerTail, 1f);
+            }*/
 		
 	}
 

@@ -18,6 +18,7 @@ namespace wolfhoundmod.NPCs
 			npc.HitSound = SoundID.NPCHit2;
 			npc.DeathSound = SoundID.NPCHit2;
 			npc.damage = 14;
+			npc.value = Item.buyPrice(0, 0, 0, 0);
 			npc.defense = 6;
 			npc.lifeMax = 1;
 		}

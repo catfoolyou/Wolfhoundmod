@@ -3,7 +3,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace wolfhoundmod.Accessories
+namespace wolfhoundmod.Items.Accessories
 {
 	[AutoloadEquip(EquipType.Wings)]
 
