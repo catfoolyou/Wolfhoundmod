@@ -25,7 +25,7 @@ namespace wolfhoundmod.NPCs
 		}
 
 		public override float SpawnChance(NPCSpawnInfo spawnInfo) {
-			return SpawnCondition.OverworldDaySlime.Chance * 0.3f;
+			return SpawnCondition.OverworldDaySlime.Chance * 0.5f;
 		}
 
 		public override void NPCLoot()

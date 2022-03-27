@@ -4,6 +4,7 @@ using System;
 using Terraria;
 using Terraria.ModLoader;
 using wolfhoundmod.Projectiles;
+using TerrariaOverhaul;
 
 namespace wolfhoundmod.Items
 {
@@ -18,21 +19,7 @@ namespace wolfhoundmod.Items
 		{
 			item.CloneDefaults(ItemID.Minishark);
 			item.damage = 15; 
-			/*item.ranged = true; 
-			item.width = 40; 
-			item.height = 20; 
-			item.useTime = 20; 
-			item.useAnimation = 20; 
-			item.useStyle = ItemUseStyleID.HoldingOut; 
-			item.noMelee = true; 
-			item.knockBack = 4;
-			item.value = 10000; 
-			item.rare = ItemRarityID.Green;*/ 
-			item.UseSound = mod.GetLegacySoundSlot(SoundType.Item, "Sounds/Item/shotgun");
-			/*item.autoReuse = true; 
-			item.shoot = 10;
-			item.shootSpeed = 30f; 
-			item.useAmmo = AmmoID.Bullet;*/
+			item.UseSound = SoundID.Item40;
 		}
 
 		public override Vector2? HoldoutOffset()
@@ -42,7 +29,7 @@ namespace wolfhoundmod.Items
 
 		public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
 		{
-			Vector2 muzzleOffset = Vector2.Normalize(new Vector2(speedX, speedY)) * 25f;
+			Vector2 muzzleOffset = Vector2.Normalize(new Vector2(speedX, speedY)) * 32f;
 			if (Collision.CanHit(position, 0, 0, position + muzzleOffset, 0, 0))
 			{
 				position += muzzleOffset;

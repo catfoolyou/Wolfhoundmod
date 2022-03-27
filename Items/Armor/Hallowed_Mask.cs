@@ -22,9 +22,9 @@ namespace wolfhoundmod.Items.Armor
 			item.rare = 2;
 		}
 
-		public override bool IsArmorSet(Item head, Item body, Item legs) {
+		/*public override bool IsArmorSet(Item head, Item body, Item legs) {
 			return body.type == ModContent.ItemType<Hallowed_Plate_Mail>() && legs.type == ModContent.ItemType<Hallowed_Greaves>();
-		}
+		}*/
 
 		public override void UpdateEquip(Player player)
      		{

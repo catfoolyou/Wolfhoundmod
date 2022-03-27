@@ -21,9 +21,9 @@ namespace wolfhoundmod.Items.Armor
 			item.rare = 2;
 		}
 
-		public override bool IsArmorSet(Item head, Item body, Item legs) {
+		/*public override bool IsArmorSet(Item head, Item body, Item legs) {
 			return body.type == ModContent.ItemType<scandium_chestplate>() && legs.type == ModContent.ItemType<scandium_boots>();
-		}
+		}*/
 
 		public override void UpdateArmorSet(Player player) {
 			item.defense += 4;

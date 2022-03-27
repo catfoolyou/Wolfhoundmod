@@ -21,9 +21,9 @@ namespace wolfhoundmod.Items.Armor
 			item.rare = 2;
 		}
 
-		public override bool IsArmorSet(Item head, Item body, Item legs) {
+		/*public override bool IsArmorSet(Item head, Item body, Item legs) {
 			return body.type == ModContent.ItemType<leather_shirt>() && legs.type == ModContent.ItemType<leather_pants>();
-		}
+		}*/
 
 		public override void UpdateEquip(Player player)
      		{

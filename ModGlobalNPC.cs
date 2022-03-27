@@ -45,7 +45,7 @@ namespace wolfhoundmod
                 }
  		
             }
-	 if (Main.rand.Next(15) == 0)
+	 if (Main.rand.Next(10) == 0)
             {
                 if (npc.type == NPCID.GreekSkeleton)
                 {

@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework;
 using System;
 using Terraria;
 using Terraria.ModLoader;
+using TerrariaOverhaul;
 
 namespace wolfhoundmod.Items
 {
@@ -15,22 +16,8 @@ namespace wolfhoundmod.Items
 
 		public override void SetDefaults() 
 		{
-			item.damage = 10; 
-			item.ranged = true; 
-			item.width = 40; 
-			item.height = 20; 
-			item.useTime = 20; 
-			item.useAnimation = 20; 
-			item.useStyle = ItemUseStyleID.HoldingOut; 
-			item.noMelee = true; 
-			item.knockBack = 4;
-			item.value = 10000; 
-			item.rare = ItemRarityID.Green; 
-			item.UseSound = mod.GetLegacySoundSlot(SoundType.Item, "Sounds/Item/shotgun");
-			item.autoReuse = true; 
-			item.shoot = 10; //idk why but all the guns in the vanilla source have this
-			item.shootSpeed = 16f; 
-			item.useAmmo = AmmoID.Bullet;
+			item.CloneDefaults(ItemID.TacticalShotgun);
+			item.damage = 15;
 		}
 
 		public override Vector2? HoldoutOffset()
@@ -38,7 +25,7 @@ namespace wolfhoundmod.Items
            		return new Vector2(-10, 0);
         	}
 		
-		public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+		/*public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
 		{
 			int numberProjectiles = 4 + Main.rand.Next(2); // 4 or 5 shots
 			for (int i = 0; i < numberProjectiles; i++)
@@ -56,23 +43,7 @@ namespace wolfhoundmod.Items
 			{
 				position += muzzleOffset;
 			}
-
-			int dustQuantity = 25; // How many particles do you want ?
-
-            		for(int i = 0 ; i < dustQuantity ; i ++)
-
-           			{
-
-                		Vector2 dustOffset = Vector2.Normalize(new Vector2(speedX, speedY)) * 50f;
-                		int dust = Dust.NewDust(player.position + dustOffset, item.width, item.height, 6); // Create the dust, "6" is the dust type (fire, in that case).
-                		Main.dust[dust].noGravity = true; // Is the dust affected by gravity ?
-                		Main.dust[dust].velocity *= 1f;    // Change the dust velocity.
-                		Main.dust[dust].scale = 1.5f;    // Change the dust size.
-
-           			}
-
-			return true;
-		}
+		}*/
 
 		public override void AddRecipes() 
 		{

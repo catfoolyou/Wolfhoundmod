@@ -24,7 +24,7 @@ namespace wolfhoundmod.Items
 			item.rare = 2;
 			item.UseSound = SoundID.Item1;
 			item.autoReuse = true;
-                        item.pick = 60;
+                        item.pick = 50;
 		}
 
 		public override void AddRecipes() 
