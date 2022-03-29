@@ -149,10 +149,6 @@ namespace wolfhoundmod.NPCs
 		nextSlot++;
 		shop.item[nextSlot].SetDefaults(ItemID.MagicMirror);
 		nextSlot++;
-		if (NPC.downedBoss2){
-			shop.item[nextSlot].SetDefaults(ModContent.ItemType<coal>());
-			nextSlot++;
-			}
 		if (NPC.downedBoss1){
 			shop.item[nextSlot].SetDefaults(ItemID.WoodenCrate);
 			nextSlot++;
@@ -162,17 +158,13 @@ namespace wolfhoundmod.NPCs
 			nextSlot++;
 			shop.item[nextSlot].SetDefaults(mod.ItemType("dune_splicer"));
 			nextSlot++;
-			shop.item[nextSlot].SetDefaults(ModContent.ItemType<wolf_hood>());
+			}
+		if (NPC.downedBoss2){
+			shop.item[nextSlot].SetDefaults(ModContent.ItemType<coal>());
 			nextSlot++;
-			shop.item[nextSlot].SetDefaults(ModContent.ItemType<wolf_chestplate>());
+			shop.item[nextSlot].SetDefaults(ModContent.ItemType<opal_staff>());
 			nextSlot++;
-			shop.item[nextSlot].SetDefaults(ModContent.ItemType<wolf_leggings>());
-			nextSlot++;
-			shop.item[nextSlot].SetDefaults(ModContent.ItemType<leather_hat>());
-			nextSlot++;
-			shop.item[nextSlot].SetDefaults(ModContent.ItemType<leather_shirt>());
-			nextSlot++;
-			shop.item[nextSlot].SetDefaults(ModContent.ItemType<leather_pants>());
+			shop.item[nextSlot].SetDefaults(ModContent.ItemType<onyx_staff>());
 			nextSlot++;
 			}
 		if (NPC.downedBoss3){

@@ -20,19 +20,29 @@ namespace wolfhoundmod
 	public class wolfhoundmod : Mod
 	{
 
+	Texture2D originalInflux;
+	Texture2D originalIceblade;
+	Texture2D originalFrost; 
+	Texture2D originalSDMG;
+	Texture2D originalEnchant;
+
 	public static Mod TerrariaOverhaul;
 
 	public override void Load() 
 	{
             if (!Main.dedServ) {
                 Main.itemTexture[ItemID.Spear] = GetTexture("Items/wooden_spear"); // Now we change it
+		originalIceblade = Main.itemTexture[ItemID.IceBlade];
 		Main.itemTexture[ItemID.IceBlade] = GetTexture("Items/1"); // Now we change it
+		originalFrost = Main.itemTexture[ItemID.Frostbrand];
 		Main.itemTexture[ItemID.Frostbrand] = GetTexture("Items/frostbrand"); // Now we change it
 		Main.itemTexture[ItemID.AdamantiteSword] = GetTexture("Items/adamantite_sword"); // Now we change it
+		originalInflux = Main.itemTexture[ItemID.InfluxWaver];
 		Main.itemTexture[ItemID.InfluxWaver] = GetTexture("Items/influx_waver"); // Now we change it
+		originalEnchant = Main.itemTexture[ItemID.EnchantedSword];
 		Main.itemTexture[ItemID.EnchantedSword] = GetTexture("Items/enchanted_sword"); // Now we change it
+		originalSDMG = Main.itemTexture[ItemID.SDMG];
 		Main.itemTexture[ItemID.SDMG] = GetTexture("Items/sdmg"); // Now we change it
-                //Main.projectileTexture[ProjectileID.Bullet] = GetTexture("Projectiles/shoot"); // Now we change it
             }
         }
 
@@ -43,7 +53,12 @@ namespace wolfhoundmod
 
 	public override void Unload()
         {
-        	TerrariaOverhaul = null;					
+        	TerrariaOverhaul = null;
+		Main.itemTexture[ItemID.InfluxWaver] = originalInflux;
+		Main.itemTexture[ItemID.IceBlade] = originalIceblade;
+		Main.itemTexture[ItemID.Frostbrand] = originalFrost; 
+		Main.itemTexture[ItemID.SDMG] = originalSDMG;
+		Main.itemTexture[ItemID.EnchantedSword] = originalEnchant;				
         }
 
 		public override void AddRecipes() 

@@ -16,7 +16,7 @@ namespace wolfhoundmod.Items.Armor
 
 		public override void SetDefaults() 
 		{
-			item.defense = 4;
+			item.defense = 5;
 			item.value = 10000;
 			item.rare = 2;
 		}

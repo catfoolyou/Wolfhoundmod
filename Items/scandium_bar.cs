@@ -30,7 +30,7 @@ namespace wolfhoundmod.Items
         public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
-	    recipe.AddIngredient(mod.GetItem("scandium_ore"));
+	    recipe.AddIngredient(mod.GetItem("scandium_ore"), 3);
             recipe.AddTile(17);
             recipe.SetResult(this);
             recipe.AddRecipe();

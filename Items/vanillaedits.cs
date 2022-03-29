@@ -138,6 +138,10 @@ namespace wolfhoundmod.Items
 				item.autoReuse = true;
 			}
 
+			if (item.type == ItemID.TrueExcalibur) { 
+				item.autoReuse = true;
+			}
+
 			if (item.type == ItemID.TungstenShortsword) { // Here we make sure to only change Tungsten Shortsword by checking item.type in an if statement
 				item.useStyle = ItemUseStyleID.HoldingOut;
 				item.useAnimation = 18;

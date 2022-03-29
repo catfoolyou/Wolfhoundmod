@@ -20,6 +20,7 @@ namespace wolfhoundmod.Items
 		public override void SetDefaults() 
 		{
 			item.CloneDefaults(ItemID.DemonBow); // apply overhaul changes?
+			item.shootSpeed = 42f;
 		}
 
 		public void OverhaulInit()
