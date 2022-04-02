@@ -60,7 +60,6 @@ namespace wolfhoundmod
 		Main.itemTexture[ItemID.SDMG] = originalSDMG;
 		Main.itemTexture[ItemID.EnchantedSword] = originalEnchant;				
         }
-
 		public override void AddRecipes() 
 		{
 			RecipeFinder finder = new RecipeFinder();

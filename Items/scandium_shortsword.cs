@@ -14,25 +14,18 @@ namespace wolfhoundmod.Items
 
 		public override void SetDefaults() 
 		{
-			item.damage = 13;
-			item.useStyle = ItemUseStyleID.HoldingOut;
-			item.useAnimation = 18;
-			item.useTime = 50;
-			item.shootSpeed = 3.7f;
-			item.knockBack = 6.5f;
-			item.width = 20;
-			item.height = 20;
-			item.scale = 1f;
-			item.rare = ItemRarityID.Blue;
-			item.value = Item.sellPrice(silver: 10);
+           		item.rare = ItemRarityID.Blue;
+            		item.value = Item.sellPrice(silver: 22);
 
-			item.melee = true;
-			item.noMelee = true; // Important because the spear is actually a projectile instead of an item. This prevents the melee hitbox of this item.
-			item.noUseGraphic = true; // Important, it's kind of wired if people see two spears at one time. This prevents the melee animation of this item.
-			item.autoReuse = false; // Most spears don't autoReuse, but it's possible when used in conjunction with CanUseItem()
+            		item.useTime = 15;
+            		item.useAnimation = 15;
+            		item.useStyle = ItemUseStyleID.Stabbing;
+            		item.UseSound = SoundID.Item1;
+			item.autoReuse = true;			
 
-			item.UseSound = SoundID.Item1;
-			item.shoot = ModContent.ProjectileType<scandium_shortsword1>();
+            		item.melee = true;
+            		item.damage = 13;
+            		item.knockBack = 1.5f;
 		}
 		public override bool CanUseItem(Player player) {
 			// Ensures no more than one spear can be thrown out, use this when using autoReuse

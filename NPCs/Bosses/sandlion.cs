@@ -95,7 +95,7 @@ namespace wolfhoundmod.NPCs.Bosses
 
 		}
 
-		if (npc.life <= 1) // gore
+		if (npc.life <= 0) // gore
             	{
                 for (int k = 0; k < 20; k++)
                 {
@@ -124,7 +124,7 @@ namespace wolfhoundmod.NPCs.Bosses
         {
         	if (Main.rand.Next(1) == 0)
             		{
-			int choice = Main.rand.Next(1,5);
+			int choice = Main.rand.Next(1,6);
 				if(choice == 1)
 					Item.NewItem(npc.getRect(), ModContent.ItemType<dune_splicer>());
 				else if(choice == 2)
@@ -133,6 +133,8 @@ namespace wolfhoundmod.NPCs.Bosses
 					Item.NewItem(npc.getRect(), ModContent.ItemType<scarab_bow>());
 				else if(choice == 4)
 					Item.NewItem(npc.getRect(), ModContent.ItemType<antlion_staff>());
+				else if(choice == 5)
+					Item.NewItem(npc.getRect(), ModContent.ItemType<storm_spear>());
 			}
 		if (Main.rand.Next(1) == 0)
             		{

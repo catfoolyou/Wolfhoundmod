@@ -17,8 +17,8 @@ namespace wolfhoundmod.Items
 
 		public override void SetDefaults() 
 		{
-			item.CloneDefaults(ItemID.Minishark);
-			item.damage = 15; 
+			item.CloneDefaults(ItemID.Handgun);
+			item.autoReuse = true;
 			item.UseSound = SoundID.Item40;
 		}
 
@@ -39,14 +39,14 @@ namespace wolfhoundmod.Items
 
 		public override void AddRecipes() 
 		{
-			ModRecipe recipe = new ModRecipe(mod);
+			/*ModRecipe recipe = new ModRecipe(mod);
 			recipe.AddIngredient(mod.GetItem("steel_bar"), 20);
 			recipe.anyWood = true;
                         recipe.AddIngredient(ItemID.Wood, 10);
 			recipe.AddIngredient(ItemID.Minishark, 1);
 			recipe.AddTile(TileID.Anvils);
 			recipe.SetResult(this);
-			recipe.AddRecipe();
+			recipe.AddRecipe();*/
 		}
 		
 	}

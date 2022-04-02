@@ -176,6 +176,8 @@ namespace wolfhoundmod.NPCs
 			nextSlot++;
 			shop.item[nextSlot].SetDefaults(ItemID.FrostCore);
 			nextSlot++;
+			shop.item[nextSlot].SetDefaults(ItemID.TitaniumOre);
+			nextSlot++;
 			}
 		
         }

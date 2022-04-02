@@ -17,6 +17,7 @@ namespace wolfhoundmod.Items
 			item.damage = 17;
 			item.mana = 5;
 			item.shoot = 121;
+			item.shootSpeed = 25f;
 		}
 	}
 }

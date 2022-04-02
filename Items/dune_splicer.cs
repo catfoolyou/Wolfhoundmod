@@ -18,7 +18,7 @@ namespace wolfhoundmod.Items
 			item.mana = 8;
 			item.width = 40;
 			item.height = 40;
-			item.useTime = 32;
+			item.useTime = 6; //32
 			item.useAnimation = 1;
 			item.useStyle = ItemUseStyleID.HoldingOut;
 			item.noMelee = true; //so the item's animation doesn't do damage

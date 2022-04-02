@@ -42,14 +42,14 @@ namespace wolfhoundmod.Items
 	
 		public override void AddRecipes() 
 		{
-			ModRecipe recipe = new ModRecipe(mod);
+			/*ModRecipe recipe = new ModRecipe(mod);
 			recipe.AddIngredient(mod.GetItem("steel_bar"), 20);
 			recipe.anyWood = true;
                         recipe.AddIngredient(ItemID.Wood, 10);
 			recipe.AddIngredient(ItemID.Boomstick, 1);
 			recipe.AddTile(TileID.Anvils);
 			recipe.SetResult(this);
-			recipe.AddRecipe();
+			recipe.AddRecipe();*/
 		}
 		
 	}

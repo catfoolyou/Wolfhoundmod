@@ -52,7 +52,7 @@ namespace wolfhoundmod.NPCs.Bosses
 		for (int k = 0; k < damage / npc.lifeMax * 100.0; k++) {
 			Dust.NewDust(npc.position, npc.width, npc.height, 5, hitDirection, -1f, 0, default(Color), 1f);
 		}
-		if (Main.netMode != NetmodeID.MultiplayerClient && Main.rand.NextFloat() < 0.2f) {
+		if (Main.netMode != NetmodeID.MultiplayerClient && Main.rand.NextFloat() < 0.1f) {
 			Vector2 spawnAt = npc.Center + new Vector2(0f, (float)npc.height / 2f);
 			NPC.NewNPC((int)spawnAt.X, (int)spawnAt.Y, NPCID.Salamander);
 		}
@@ -61,21 +61,21 @@ namespace wolfhoundmod.NPCs.Bosses
 			NPC.NewNPC((int)spawnAt.X, (int)spawnAt.Y, NPCID.GraniteFlyer);
 
 		}
-		/*if (npc.life <= 0)
+		if (npc.life <= 0)
             	{
                 for (int k = 0; k < 20; k++)
                 {
                     Dust.NewDust(npc.position, npc.width, npc.height, 151, 2.5f * (float)hitDirection, -2.5f, 0, default(Color), 0.7f);
                 }
-                Gore.NewGore(npc.position, npc.velocity, GoreID.DesertBeast1, 1f);
-		Gore.NewGore(npc.position, npc.velocity, GoreID.DesertBeast2, 1f);
-                Gore.NewGore(npc.position, npc.velocity, GoreID.DesertBeast3, 1f);
-		Gore.NewGore(npc.position, npc.velocity, GoreID.DesertBeast4, 1f);
-		Gore.NewGore(npc.position, npc.velocity, GoreID.DuneSplicerHead, 1f);
-		Gore.NewGore(npc.position, npc.velocity, GoreID.DuneSplicerBody, 1f);
-                Gore.NewGore(npc.position, npc.velocity, GoreID.DuneSplicerHead, 1f);
-		Gore.NewGore(npc.position, npc.velocity, GoreID.DuneSplicerTail, 1f);
-            }*/
+                Gore.NewGore(npc.position, npc.velocity, GoreID.GraniteGolemBody, 1f);
+		Gore.NewGore(npc.position, npc.velocity, GoreID.GraniteGolemBody, 1f);
+                Gore.NewGore(npc.position, npc.velocity, GoreID.LunarTablet2, 1f);
+		Gore.NewGore(npc.position, npc.velocity, GoreID.LunarTablet3, 1f);
+		Gore.NewGore(npc.position, npc.velocity, GoreID.GraniteGolemBody, 1f);
+		Gore.NewGore(npc.position, npc.velocity, GoreID.GraniteGolemBody, 1f);
+                Gore.NewGore(npc.position, npc.velocity, GoreID.LunarTablet2, 1f);
+		Gore.NewGore(npc.position, npc.velocity, GoreID.LunarTablet3, 1f);
+            }
 		
 	}
 
@@ -95,9 +95,8 @@ namespace wolfhoundmod.NPCs.Bosses
                 {
                     npc.timeLeft = 10;
                     return;
-		 }
+		}
             }
-		//ModContent.ProjectileType<sand_chunk>()
 
             Vector2 vector2 = new Vector2(npc.Center.X, npc.Center.Y);
             float x = player.Center.X - vector2.X;

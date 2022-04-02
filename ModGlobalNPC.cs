@@ -1,8 +1,9 @@
+using System;
+using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
-using System;
+using Terraria.ID;
 using wolfhoundmod.Items;
 using wolfhoundmod.Projectiles.Minions;
 
@@ -10,9 +11,63 @@ namespace wolfhoundmod
 {
     public class ModGlobalNPC : GlobalNPC
     {
+	 //Change the spawn pool
+        public override void EditSpawnPool(IDictionary< int, float > pool, NPCSpawnInfo spawnInfo)
+        {
+            //If the custom invasion is up and the invasion has reached the spawn pos
+            if(WHMWorld. RaidUp&& (Main.invasionX == (double)Main.spawnTileX))
+            {
+                //Clear pool so that only the stuff you want spawns
+                pool.Clear();
+           
+		//key = NPC ID | value = spawn weight
+                //pool.add(key, value)
+           
+                //For every ID inside the invader array in our CustomInvasion file
+                foreach(int i in Raid.invaders)
+                {
+                    pool.Add(i, 1f); //Add it to the pool with the same weight of 1
+                }
+            }
+        }
+
+        //Changing the spawn rate
+        public override void EditSpawnRate(Player player, ref int spawnRate, ref int maxSpawns)
+        {
+            //Change spawn stuff if invasion up and invasion at spawn
+            if(WHMWorld. RaidUp&& (Main.invasionX == (double)Main.spawnTileX))
+            {
+                spawnRate = 100; //The higher the number, the less chance it will spawn (thanks jopojelly for how spawnRate works)
+                maxSpawns = 10000; //Max spawns of NPCs depending on NPC value
+            }
+        }
+
+	 public override void PostAI(NPC npc)
+        {
+            //Changes NPCs so they do not despawn when invasion up and invasion at spawn
+            if(WHMWorld.RaidUp && (Main.invasionX == (double)Main.spawnTileX))
+            {
+                npc.timeLeft = 1000;
+            }
+        }
 
         public override void NPCLoot(NPC npc)
         {
+
+	//When an NPC (from the invasion list) dies, add progress by decreasing size
+            if(WHMWorld.RaidUp)
+            {
+                //Gets IDs of invaders from CustomInvasion file
+                foreach(int invaders in Raid.invaders)
+                {
+                    //If npc type equal to invader's ID decrement size to progress invasion
+                    if(npc.type == invaders)
+                    {
+                        Main.invasionSize -= 1;
+                    }
+                }
+            }
+
             if (Main.rand.Next(2) == 0)
             {
                 if (npc.type == NPCID.Bunny)
