@@ -11,6 +11,16 @@ namespace wolfhoundmod
 {
     public class ModGlobalNPC : GlobalNPC
     {
+
+	public override void SetupShop(int type, Chest shop, ref int nextSlot) {
+		if (type == NPCID.ArmsDealer) {
+			if (Main.hardMode){
+			shop.item[nextSlot].SetDefaults(ItemID.ClockworkAssaultRifle);
+			nextSlot++;
+			}
+			}	
+		}
+
 	 //Change the spawn pool
         public override void EditSpawnPool(IDictionary< int, float > pool, NPCSpawnInfo spawnInfo)
         {

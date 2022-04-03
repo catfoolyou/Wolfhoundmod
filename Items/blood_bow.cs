@@ -40,7 +40,7 @@ namespace wolfhoundmod.Items
 
 			if (type == ProjectileID.WoodenArrowFriendly)
 			{
-				type = ProjectileID.BloodRain;
+				type = ProjectileID.PoisonDartBlowgun;
 			}
 			return true;
 		}

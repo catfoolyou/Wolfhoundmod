@@ -1,8 +1,12 @@
-using Terraria;
-using Terraria.ID;
-using Terraria.ModLoader;
+using System;
 using Microsoft.Xna.Framework;
+using Terraria;
+using Terraria.GameContent.Events;
+using Terraria.ID;
+using Terraria.Localization;
+using Terraria.ModLoader;
 using wolfhoundmod.Items;
+using wolfhoundmod.Projectiles;
 
 namespace wolfhoundmod.NPCs.Bosses
 {
@@ -16,8 +20,9 @@ namespace wolfhoundmod.NPCs.Bosses
 		}
 
 		public override void SetDefaults() {
-			npc.CloneDefaults(NPCID.IchorSticker);
-			aiType = NPCID.IchorSticker;
+			//npc.CloneDefaults(NPCID.IchorSticker);
+			//aiType = NPCID.IchorSticker;
+			npc.aiStyle = -1;
 			animationType = NPCID.Wraith;
 			npc.width = 50;
             		npc.height = 100;
@@ -32,14 +37,64 @@ namespace wolfhoundmod.NPCs.Bosses
 			npc.buffImmune[44] = true;
 			npc.buffImmune[20] = true;
             		npc.noTileCollide = true;
+			npc.DeathSound = SoundID.NPCDeath6;
+			npc.HitSound = SoundID.NPCHit19;
 			music = MusicID.Boss1;
+		}
+
+		public float Timer {
+			get => npc.ai[0];
+			set => npc.ai[0] = value;
+		}
+
+		public override void AI(){
+	    		npc.TargetClosest(true);
+            		Player player = Main.player[npc.target];
+            		if (npc.target < 0 || npc.target == 255 || player.dead || !player.active)
+            		{
+                		npc.TargetClosest(false);
+                		if (npc.velocity.X > 0.0f)
+                    		npc.velocity.X = npc.velocity.X + 0.75f;
+		
+                	else
+                    		npc.velocity.X = npc.velocity.X - 0.75f;
+                		npc.velocity.Y = npc.velocity.Y + 0.1f;
+                		if (npc.timeLeft > 10)
+                		{
+                    			npc.timeLeft = 10;
+                    			return;
+				}
+            		}
+
+			Timer++;
+				if (Timer > 120) {
+				Vector2 position = npc.Center;
+    				Vector2 targetPosition = Main.player[npc.target].Center;
+    				Vector2 direction = targetPosition - position;
+    				direction.Normalize();
+    				float speed = 10f;
+    				int type = ProjectileID.GoldenShowerHostile;
+    				int damage = npc.damage; //If the projectile is hostile, the damage passed into NewProjectile will be applied doubled, and quadrupled if expert mode, so keep that in mind when balancing projectiles
+   				Projectile.NewProjectile(position, direction * speed, type, damage, 0f, Main.myPlayer);
+				Timer = 0;
+			}		
+
+           		Vector2 vector2 = new Vector2(npc.Center.X, npc.Center.Y);
+            		float x = player.Center.X - vector2.X;
+            		float y = player.Center.Y - vector2.Y;
+            		float distance = 6f / (float)Math.Sqrt((double)x * (double)x + (double)y * (double)y);
+            		float velocityX = x * distance;
+            		float velocityY = y * distance;
+            		npc.velocity.X = (float)(((double)npc.velocity.X * 100.0 + (double)velocityX) / 101.0);
+           		npc.velocity.Y = (float)(((double)npc.velocity.Y * 100.0 + (double)velocityY) / 101.0);
+            		npc.rotation = (float)Math.Atan2((double)velocityY, (double)velocityX) - 0.57f; //make it less tilted
 		}
 
 		public override void HitEffect(int hitDirection, double damage) {
 		for (int k = 0; k < damage / npc.lifeMax * 100.0; k++) {
 			Dust.NewDust(npc.position, npc.width, npc.height, 5, hitDirection, -1f, 0, default(Color), 1f);
 		}
-		if (Main.netMode != NetmodeID.MultiplayerClient && Main.rand.NextFloat() < 0.07f) {
+		if (Main.netMode != NetmodeID.MultiplayerClient && Main.rand.NextFloat() < 0.1f) {
 			Vector2 spawnAt = npc.Center + new Vector2(0f, (float)npc.height / 2f);
 			NPC.NewNPC((int)spawnAt.X, (int)spawnAt.Y, NPCID.BloodZombie);
 		}
