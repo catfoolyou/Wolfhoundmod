@@ -74,7 +74,7 @@ namespace wolfhoundmod.NPCs.Bosses
     				direction.Normalize();
     				float speed = 10f;
     				int type = ProjectileID.GoldenShowerHostile;
-    				int damage = npc.damage; //If the projectile is hostile, the damage passed into NewProjectile will be applied doubled, and quadrupled if expert mode, so keep that in mind when balancing projectiles
+    				int damage = npc.damage / 10; //If the projectile is hostile, the damage passed into NewProjectile will be applied doubled, and quadrupled if expert mode, so keep that in mind when balancing projectiles
    				Projectile.NewProjectile(position, direction * speed, type, damage, 0f, Main.myPlayer);
 				Timer = 0;
 			}		

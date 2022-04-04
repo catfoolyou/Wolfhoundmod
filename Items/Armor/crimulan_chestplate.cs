@@ -6,12 +6,12 @@ namespace wolfhoundmod.Items.Armor
 {
 	[AutoloadEquip(EquipType.Body)]
 	
-	public class steel_chestplate : ModItem
+	public class crimulan_chestplate : ModItem
 	{
 		public override void SetStaticDefaults() 
 		{
-			DisplayName.SetDefault("Steel Chestplate");
-			Tooltip.SetDefault("+3% melee damage");
+			DisplayName.SetDefault("Crimulan Chestplate");
+			Tooltip.SetDefault("+5% damage and increased life regen");
 		}
 
 		public override void SetDefaults() 
@@ -22,14 +22,16 @@ namespace wolfhoundmod.Items.Armor
 		}
  		public override void UpdateEquip(Player player)
      		{
-         		player.meleeDamage += 0.03f;
+         		player.allDamage += 0.05f;
+			player.lifeRegen += 3;
       		}
 
 		public override void AddRecipes() 
 		{
 			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(mod.GetItem("steel_bar"), 30);
-			recipe.AddTile(TileID.Anvils);
+			recipe.AddIngredient(ItemID.CrimsonScalemail);
+			recipe.AddIngredient(ItemID.Ichor);
+			recipe.AddTile(TileID.WorkBenches);
 			recipe.SetResult(this);
 			recipe.AddRecipe();
 		}

@@ -11,6 +11,7 @@ namespace wolfhoundmod.Items.Accessories
 		public override void SetStaticDefaults() 
 		{
 			DisplayName.SetDefault("Life vial"); // By default, capitalization in classnames will add spaces to the display name. You can customize the display name here by uncommenting this line.
+			Tooltip.SetDefault("+2 life regen and +20% max life");
 		}
 		public override void SetDefaults()
 		{

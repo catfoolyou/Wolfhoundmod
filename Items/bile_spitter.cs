@@ -10,11 +10,11 @@ using TerrariaOverhaul;
 
 namespace wolfhoundmod.Items
 {
-	public class blood_bow : ModItem
+	public class bile_spitter : ModItem
 	{
 		public override void SetStaticDefaults() 
 		{
-			DisplayName.SetDefault("Blood Bow");
+			DisplayName.SetDefault("Bile Spitter");
 		}
 
 		public override void SetDefaults() 
@@ -27,12 +27,13 @@ namespace wolfhoundmod.Items
 
 		public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
 		{
+
 			if (type == ProjectileID.WoodenArrowFriendly)
 			{
-				type = ProjectileID.PoisonDartBlowgun;
+				type = ProjectileID.PoisonFang;
 			}
-
 			return true;
+
 			int numberProjectiles = 4 + Main.rand.Next(2); // 4 or 5 shots
 			for (int i = 0; i < numberProjectiles; i++)
 			{
@@ -42,7 +43,7 @@ namespace wolfhoundmod.Items
 				// perturbedSpeed = perturbedSpeed * scale; 
 				Projectile.NewProjectile(position.X, position.Y, perturbedSpeed.X, perturbedSpeed.Y, type, damage, knockBack, player.whoAmI);
 			}
-			return false;			
+			return false;
 		}
 
 	}

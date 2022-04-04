@@ -11,7 +11,7 @@ namespace wolfhoundmod.Items.Armor
 		public override void SetStaticDefaults() 
 		{
 			DisplayName.SetDefault("Ancient Crimson Greaves");
-			Tooltip.SetDefault("+6% damage and increased life regen");
+			Tooltip.SetDefault("+2% damage and increased life regen");
 		}
 
 		public override void SetDefaults() 

@@ -6,25 +6,31 @@ namespace wolfhoundmod.Items.Armor
 {
 	[AutoloadEquip(EquipType.Legs)]
 	
-	public class scandium_boots : ModItem
+	public class crimulan_greaves : ModItem
 	{
 		public override void SetStaticDefaults() 
 		{
-			DisplayName.SetDefault("Scandium Greaves");
+			DisplayName.SetDefault("Crimulan Greaves");
+			Tooltip.SetDefault("+5% damage and increased life regen");
 		}
 
 		public override void SetDefaults() 
 		{
-			item.defense = 5;
+			item.defense = 6;
 			item.value = 10000;
 			item.rare = 2;
 		}
-	
+		public override void UpdateEquip(Player player)
+     		{
+			player.allDamage += 0.05f;
+      		}
+
 		public override void AddRecipes() 
 		{
 			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(mod.GetItem("scandium_bar"), 25);
-			recipe.AddTile(TileID.Anvils);
+			recipe.AddIngredient(ItemID.CrimsonGreaves);
+			recipe.AddIngredient(ItemID.Ichor);
+			recipe.AddTile(TileID.WorkBenches);
 			recipe.SetResult(this);
 			recipe.AddRecipe();
 		}
