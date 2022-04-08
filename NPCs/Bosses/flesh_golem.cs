@@ -67,7 +67,7 @@ namespace wolfhoundmod.NPCs.Bosses
             		}
 
 			Timer++;
-				if (Timer > 120) {
+				if (Timer > 60) {
 				Vector2 position = npc.Center;
     				Vector2 targetPosition = Main.player[npc.target].Center;
     				Vector2 direction = targetPosition - position;
@@ -122,6 +122,10 @@ namespace wolfhoundmod.NPCs.Bosses
 
 		public override void NPCLoot()
 		{
+			if (Main.expertMode)
+            {
+                npc.DropBossBags();
+            }
 			if (Main.rand.Next(1) == 0)
             		{
 			int choice = Main.rand.Next(1,5);

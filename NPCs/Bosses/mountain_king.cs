@@ -117,6 +117,10 @@ namespace wolfhoundmod.NPCs.Bosses
 
         public override void NPCLoot()
         {
+		if (Main.expertMode)
+            {
+                npc.DropBossBags();
+            }
 		if (Main.rand.Next(1) == 0)
             		{
 			int choice = Main.rand.Next(1,5);

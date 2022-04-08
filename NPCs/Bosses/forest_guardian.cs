@@ -12,10 +12,10 @@ namespace wolfhoundmod.NPCs.Bosses
 {
 	[AutoloadBossHead]
 
-	public class observer : ModNPC
+	public class forest_guardian : ModNPC
 	{
 		public override void SetStaticDefaults() {
-			DisplayName.SetDefault("The Observer");
+			DisplayName.SetDefault("The Forest Guardian");
 			Main.npcFrameCount[npc.type] = 4;
 		}
 
@@ -24,9 +24,9 @@ namespace wolfhoundmod.NPCs.Bosses
 			animationType = NPCID.Wraith;
 			npc.width = 50;
             		npc.height = 100;
-			npc.damage = 34;
-			npc.defense = 8;
-			npc.lifeMax = 6830;
+			npc.damage = 36;
+			npc.defense = 10;
+			npc.lifeMax = 4000;
 			npc.boss = true;
 			npc.knockBackResist = 0f;
 			npc.noGravity = true;
@@ -35,8 +35,8 @@ namespace wolfhoundmod.NPCs.Bosses
 			npc.buffImmune[44] = true;
 			npc.buffImmune[20] = true;
             		npc.noTileCollide = true;
-			npc.DeathSound = SoundID.NPCDeath6;
-			npc.HitSound = SoundID.NPCHit19;
+			npc.DeathSound = SoundID.NPCDeath10;
+			npc.HitSound = SoundID.NPCDeath1;
 			music = MusicID.Boss1;
 		}
 
@@ -65,14 +65,14 @@ namespace wolfhoundmod.NPCs.Bosses
             		}
 
 			Timer++;
-				if (Timer > 40) {
+				if (Timer > 20) {
 				Vector2 position = npc.Center;
     				Vector2 targetPosition = Main.player[npc.target].Center;
     				Vector2 direction = targetPosition - position;
     				direction.Normalize();
-    				float speed = 10f;
-    				int type = ProjectileID.SalamanderSpit;
-    				int damage = npc.damage / 10; //If the projectile is hostile, the damage passed into NewProjectile will be applied doubled, and quadrupled if expert mode, so keep that in mind when balancing projectiles
+    				float speed = 60f;
+    				int type = ModContent.ProjectileType<forest_proj>();
+    				int damage = npc.damage / 2; //If the projectile is hostile, the damage passed into NewProjectile will be applied doubled, and quadrupled if expert mode, so keep that in mind when balancing projectiles
    				Projectile.NewProjectile(position, direction * speed, type, damage, 0f, Main.myPlayer);
 				Timer = 0;
 			}		
@@ -88,13 +88,17 @@ namespace wolfhoundmod.NPCs.Bosses
             		npc.rotation = (float)Math.Atan2((double)velocityY, (double)velocityX) - 0.57f; //make it less tilted
 		}
 
+		public override bool PreNPCLoot() {
+			return false;
+		}
+
 		public override void HitEffect(int hitDirection, double damage) {
 		for (int k = 0; k < damage / npc.lifeMax * 100.0; k++) {
 			Dust.NewDust(npc.position, npc.width, npc.height, 5, hitDirection, -1f, 0, default(Color), 1f);
 		}
-		if (Main.netMode != NetmodeID.MultiplayerClient && Main.rand.NextFloat() < 0.1f) {
+		if (Main.netMode != NetmodeID.MultiplayerClient && Main.rand.NextFloat() < 0.01f) {
 			Vector2 spawnAt = npc.Center + new Vector2(0f, (float)npc.height / 2f);
-			NPC.NewNPC((int)spawnAt.X, (int)spawnAt.Y, NPCID.BigEater);
+			NPC.NewNPC((int)spawnAt.X, (int)spawnAt.Y, NPCID.GiantFlyingFox);
 		}
 		if (npc.life <= 0)
             	{
@@ -102,12 +106,26 @@ namespace wolfhoundmod.NPCs.Bosses
                 {
                     Dust.NewDust(npc.position, npc.width, npc.height, 151, 2.5f * (float)hitDirection, -2.5f, 0, default(Color), 0.7f);
                 }
-                	Gore.NewGore(npc.position, npc.velocity, 29, 1f);
-			Gore.NewGore(npc.position, npc.velocity, 24, 1f);
-                	Gore.NewGore(npc.position, npc.velocity, 110, 1f);
-			Gore.NewGore(npc.position, npc.velocity, 108, 1f);
-			Gore.NewGore(npc.position, npc.velocity, GoreID.Sandshark1Corrupt, 1f);
-			Gore.NewGore(npc.position, npc.velocity, GoreID.Sandshark4Corrupt, 1f);
+                	Gore.NewGore(npc.position, npc.velocity, GoreID.TreeLeaf_Normal, 1f);
+			Gore.NewGore(npc.position, npc.velocity, GoreID.TreeLeaf_Normal, 1f);
+                	Gore.NewGore(npc.position, npc.velocity, GoreID.TreeLeaf_Normal, 1f);
+			Gore.NewGore(npc.position, npc.velocity, GoreID.TreeLeaf_Normal, 1f);
+			Gore.NewGore(npc.position, npc.velocity, GoreID.TreeLeaf_Normal, 1f);
+			Gore.NewGore(npc.position, npc.velocity, GoreID.TreeLeaf_Normal, 1f);
+			Gore.NewGore(npc.position, npc.velocity, GoreID.TreeLeaf_Normal, 1f);
+			Gore.NewGore(npc.position, npc.velocity, GoreID.TreeLeaf_Normal, 1f);
+                	Gore.NewGore(npc.position, npc.velocity, GoreID.TreeLeaf_Normal, 1f);
+			Gore.NewGore(npc.position, npc.velocity, GoreID.TreeLeaf_Normal, 1f);
+			Gore.NewGore(npc.position, npc.velocity, GoreID.TreeLeaf_Normal, 1f);
+			Gore.NewGore(npc.position, npc.velocity, GoreID.TreeLeaf_Normal, 1f);
+			Gore.NewGore(npc.position, npc.velocity, GoreID.TreeLeaf_Normal, 1f);
+			Gore.NewGore(npc.position, npc.velocity, GoreID.TreeLeaf_Normal, 1f);
+                	Gore.NewGore(npc.position, npc.velocity, GoreID.TreeLeaf_Normal, 1f);
+			Gore.NewGore(npc.position, npc.velocity, GoreID.TreeLeaf_Normal, 1f);
+			Gore.NewGore(npc.position, npc.velocity, GoreID.TreeLeaf_Normal, 1f);
+			Gore.NewGore(npc.position, npc.velocity, GoreID.TreeLeaf_Normal, 1f);
+			Vector2 spawnAt = npc.Center + new Vector2(0f, (float)npc.height / 2f);
+			NPC.NewNPC((int)spawnAt.X, (int)spawnAt.Y, ModContent.NPCType<forest_guardian_head>());
             	}
 		
 		}
@@ -116,31 +134,6 @@ namespace wolfhoundmod.NPCs.Bosses
         	{
             		npc.lifeMax = (int)(npc.lifeMax * 1.5);
             		npc.damage = (int)(npc.damage * 1.5);
-		}
-
-		public override void NPCLoot()
-		{
-			if (Main.expertMode)
-            {
-                npc.DropBossBags();
-            }
-			if (Main.rand.Next(1) == 0)
-            		{
-			int choice = Main.rand.Next(1,5);
-				if(choice == 1)
-					Item.NewItem(npc.getRect(), ModContent.ItemType<demonite_staff>());
-				else if(choice == 2)
-					Item.NewItem(npc.getRect(), ModContent.ItemType<bile_spitter>());
-				else if(choice == 3)
-					Item.NewItem(npc.getRect(), ItemID.NightsEdge);
-				else if(choice == 4)
-					Item.NewItem(npc.getRect(), ItemID.WormScarf);
-			}
-		if (Main.rand.Next(1) == 0)
-            		{
-				Item.NewItem(npc.getRect(), ItemID.DemoniteBar, Main.rand.Next(100, 150));
-				Item.NewItem(npc.getRect(), ItemID.CursedFlame, Main.rand.Next(5, 8));
-			}
 		}
 	}
 }

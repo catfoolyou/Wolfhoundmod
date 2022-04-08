@@ -5,16 +5,16 @@ using Terraria.GameContent.Events;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
-using wolfhoundmod.NPCs.Bosses;
 using wolfhoundmod.Items.Accessories;
 using wolfhoundmod.Items;
+using wolfhoundmod.NPCs.Bosses;
 using wolfhoundmod.Projectiles;
 using wolfhoundmod.Projectiles.Minions;
 using wolfhoundmod.Projectiles.Minions.antlion;
 
 namespace wolfhoundmod.Items
 {
-	public class sandlion_bag : ModItem
+	public class observer_bag : ModItem
 	{
 		public override void SetStaticDefaults() {
 			DisplayName.SetDefault("Treasure Bag");
@@ -37,25 +37,24 @@ namespace wolfhoundmod.Items
 		public override void OpenBossBag(Player player) {
 			if (Main.rand.Next(1) == 0)
             		{
-			int choice = Main.rand.Next(1,6);
+			int choice = Main.rand.Next(1,5);
 				if(choice == 1)
-					player.QuickSpawnItem(ModContent.ItemType<dune_splicer>());
+					player.QuickSpawnItem(ModContent.ItemType<demonite_staff>());
 				else if(choice == 2)
-					player.QuickSpawnItem(ModContent.ItemType<sand_slasher>());
+					player.QuickSpawnItem(ModContent.ItemType<bile_spitter>());
 				else if(choice == 3)
-					player.QuickSpawnItem(ModContent.ItemType<scarab_bow>());
+					player.QuickSpawnItem(ItemID.NightsEdge);
 				else if(choice == 4)
-					player.QuickSpawnItem(ModContent.ItemType<antlion_staff>());
-				else if(choice == 5)
-					player.QuickSpawnItem(ModContent.ItemType<storm_spear>());
+					player.QuickSpawnItem(ItemID.WormScarf);
 			}
 		if (Main.rand.Next(1) == 0)
             		{
-				player.QuickSpawnItem(ItemID.FossilOre, Main.rand.Next(10, 30));
-				player.QuickSpawnItem(ItemID.Amber, Main.rand.Next(5, 8));
+				player.QuickSpawnItem(ItemID.DemoniteBar, Main.rand.Next(100, 150));
+				player.QuickSpawnItem(ModContent.ItemType<eye_shield>());
+				player.QuickSpawnItem(ItemID.CursedFlame, Main.rand.Next(5, 8));
 			}
 		}
 
-		public override int BossBagNPC => ModContent.NPCType<NPCs.Bosses.sandlion>();
+		public override int BossBagNPC => ModContent.NPCType<NPCs.Bosses.observer>();
 	}
 }

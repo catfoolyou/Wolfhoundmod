@@ -2,6 +2,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using wolfhoundmod.Items;
+using wolfhoundmod;
 
 namespace wolfhoundmod.NPCs
 {
@@ -25,6 +26,15 @@ namespace wolfhoundmod.NPCs
 		public override float SpawnChance(NPCSpawnInfo spawnInfo) {
 			return SpawnCondition.OverworldDaySlime.Chance * 0.5f;
 		}
+
+		/*public override void HitEffect(int hitDirection, double damage) {
+			if (npc.life <= 0)
+            		{
+				Main.NewText("You killed a pillager, you pay the price...", 175, 75, 255, false);
+				Raid.StartRaid();
+				return true;
+			}
+		}*/
 
 		public override void NPCLoot()
 		{

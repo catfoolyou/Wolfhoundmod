@@ -5,6 +5,8 @@ using Terraria.GameContent.Events;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
+using wolfhoundmod.Items.Accessories;
+using wolfhoundmod.Items;
 using wolfhoundmod.NPCs.Bosses;
 
 namespace wolfhoundmod.Items

@@ -11,43 +11,22 @@ namespace wolfhoundmod.Items
 	{
 
         	public override void SetDefaults(Item item) {
+			item.autoReuse = true; // all items
+
 			if (item.type == ItemID.BeamSword) { // Here we make sure to only change Platinum Shortsword by checking item.type in an if statement
-				item.autoReuse = true;
+				//item.autoReuse = true;
 				item.useTime = 20;
-			}
-
-			if (item.type == ItemID.ElectrosphereLauncher) { // Here we make sure to only change Platinum Shortsword by checking item.type in an if statement
-				item.autoReuse = true;
-			}
-
-			if (item.type == ItemID.NightsEdge) { 
-				item.autoReuse = true;
-			}
-
-			if (item.type == ItemID.OnyxBlaster) { // Here we make sure to only change Platinum Shortsword by checking item.type in an if statement
-				item.autoReuse = true;
 			}
 
 			if (item.type == ItemID.Spear) { // Here we make sure to only change Silver Shortsword by checking item.type in an if statement
 				item.shoot = ModContent.ProjectileType<wooden_spear1>();
 			}
 
-			if (item.type == ItemID.TrueNightsEdge) { 
-				item.autoReuse = true;
-			}
-
-			if (item.type == ItemID.TrueExcalibur) { 
-				item.autoReuse = true;
-			}
-
 			if (item.type == ItemID.VenusMagnum) { // Here we make sure to only change Platinum Shortsword by checking item.type in an if statement
-				item.autoReuse = true;
+				//item.autoReuse = true;
 				item.useTime = 20;
 			}
 			
-			if (item.type == ItemID.BoneSword) { 
-				item.autoReuse = true;
-			}
 		}
 
 		public override void OnHitNPC(Item item, Player player, NPC target, int damage, float knockback, bool crit) {

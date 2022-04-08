@@ -24,7 +24,7 @@ namespace wolfhoundmod.Items.Accessories
 
 		public override void UpdateEquip(Player player)
      		{
-			player.manaRegen += 2;
+			player.manaRegen += 4;
 			player.AddBuff(BuffID.MagicPower, 2);
       		}
 

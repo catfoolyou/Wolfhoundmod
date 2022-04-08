@@ -66,11 +66,11 @@ namespace wolfhoundmod
             String text = "";
             if (Main.invasionX == (double)Main.spawnTileX)
             {
-                text = "A raid has arrived!";
+                text = "A raid is happening!";
             }
             if(Main.invasionSize <= 0)
             {
-                text = "A raid has been defeated.";
+                text = "The raid has been defeated.";
             }
             if (Main.netMode == 0)
             {
@@ -203,9 +203,5 @@ namespace wolfhoundmod
                 NetMessage.SendData(78, p.whoAmI, -1, null, Main.invasionSizeStart - Main.invasionSize, (float)Main.invasionSizeStart, (float)(Main.invasionType + 3), 0f, 0, 0, 0);
             }
         }
-
-
-
-
     }
 }

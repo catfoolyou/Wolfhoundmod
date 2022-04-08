@@ -23,7 +23,7 @@ namespace wolfhoundmod.Items.Armor
  		public override void UpdateEquip(Player player)
      		{
          		player.allDamage += 0.02f;
-			player.lifeRegen += 1;
+			player.lifeRegen += 2;
       		}
 
 		public override void AddRecipes() 
