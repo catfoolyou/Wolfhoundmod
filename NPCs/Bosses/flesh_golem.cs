@@ -39,7 +39,7 @@ namespace wolfhoundmod.NPCs.Bosses
             		npc.noTileCollide = true;
 			npc.DeathSound = SoundID.NPCDeath6;
 			npc.HitSound = SoundID.NPCHit19;
-			music = MusicID.Boss1;
+			music = mod.GetSoundSlot(Terraria.ModLoader.SoundType.Music, "Sounds/Music/Kirbyrocket_Boss1");
 		}
 
 		public float Timer {
@@ -118,6 +118,12 @@ namespace wolfhoundmod.NPCs.Bosses
         	{
             		npc.lifeMax = (int)(npc.lifeMax * 1.5);
             		npc.damage = (int)(npc.damage * 1.5);
+		}
+
+		public override void BossLoot(ref string name, ref int potionType)
+		{
+    			potionType = ItemID.HealingPotion;
+    			base.BossLoot(ref name, ref potionType);
 		}
 
 		public override void NPCLoot()

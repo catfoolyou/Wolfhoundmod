@@ -37,7 +37,7 @@ namespace wolfhoundmod.NPCs.Bosses
             		npc.noTileCollide = true;
 			npc.DeathSound = SoundID.NPCDeath10;
 			npc.HitSound = SoundID.NPCDeath1;
-			music = MusicID.Boss1;
+			music = mod.GetSoundSlot(Terraria.ModLoader.SoundType.Music, "Sounds/Music/Kirbyrocket_Boss1Redux");
 		}
 
 		public float Timer {

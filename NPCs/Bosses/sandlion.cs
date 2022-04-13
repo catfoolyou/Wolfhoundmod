@@ -43,7 +43,7 @@ namespace wolfhoundmod.NPCs.Bosses
             	npc.noTileCollide = true;
             	npc.DeathSound = SoundID.NPCDeath6;
 		npc.value = Item.buyPrice(0, 0, 5, 0);
-		music = MusicID.Boss1;
+		music = mod.GetSoundSlot(Terraria.ModLoader.SoundType.Music, "Sounds/Music/Kirbyrocket_Boss1");
         }
 
 	public override void AI(){

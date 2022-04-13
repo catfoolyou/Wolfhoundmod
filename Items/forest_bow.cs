@@ -21,7 +21,7 @@ namespace wolfhoundmod.Items
 		{
 			item.CloneDefaults(ItemID.DemonBow); // apply overhaul changes?
 			item.shootSpeed = 50f;
-			item.damage = 30;
+			item.damage = 28;
 			item.autoReuse = true;
 		}
 

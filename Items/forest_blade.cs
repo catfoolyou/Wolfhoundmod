@@ -15,7 +15,7 @@ namespace wolfhoundmod.Items
 
 		public override void SetDefaults() 
 		{
-			item.damage = 35;
+			item.damage = 28;
 			item.useStyle = 1;
 			item.useAnimation = 18;
 			item.useTime = 30;
@@ -24,7 +24,7 @@ namespace wolfhoundmod.Items
 			item.width = 32;
 			item.height = 32;
 			item.scale = 1f;
-			item.rare = ItemRarityID.Green;
+			item.rare = ItemRarityID.Orange;
 			item.value = Item.sellPrice(gold: 5);
 
 			item.melee = true;

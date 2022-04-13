@@ -52,7 +52,7 @@ namespace wolfhoundmod
             }
         }
 
-	 public override void PostAI(NPC npc)
+	public override void PostAI(NPC npc)
         {
             //Changes NPCs so they do not despawn when invasion up and invasion at spawn
             if(WHMWorld.RaidUp && (Main.invasionX == (double)Main.spawnTileX))
@@ -60,6 +60,19 @@ namespace wolfhoundmod
                 npc.timeLeft = 1000;
             }
         }
+
+		/*if (npc.type == NPCID.EyeofCthulhu || npc.type == NPCID.DukeFishron){
+			music = mod.GetSoundSlot(Terraria.ModLoader.SoundType.Music, "Sounds/Music/Kirbyrocket_Boss1Redux");
+		}
+		if (npc.type == NPCID.KingSlime || npc.type == NPCID.SkeletronHead || npc.type == NPCID.SkeletronPrime || npc.type == NPCID.EaterofWorldsHead){
+			music = mod.GetSoundSlot(Terraria.ModLoader.SoundType.Music, "Sounds/Music/Kirbyrocket_Boss1");
+		}
+		if (npc.type == NPCID.WallofFlesh || npc.type == NPCID.Retinazer || npc.type == NPCID.Spazmatizm){
+			music = mod.GetSoundSlot(Terraria.ModLoader.SoundType.Music, "Sounds/Music/Kirbyrocket_Boss2");
+		}
+		if (npc.type == NPCID.BrainofCthulhu || npc.type == NPCID.TheDestroyer || npc.type == NPCID.Golem){
+			music = mod.GetSoundSlot(Terraria.ModLoader.SoundType.Music, "Sounds/Music/Kirbyrocket_Boss3");
+		}*/
 
         public override void NPCLoot(NPC npc)
         {

@@ -14,7 +14,7 @@ namespace wolfhoundmod.Items
 
 		public override void SetDefaults() {
 			item.CloneDefaults(ItemID.EmeraldStaff);
-			item.damage = 20;
+			item.damage = 28;
 			item.mana = 5;
 			item.shoot = 227;
 			//item.shootSpeed = 25f;
