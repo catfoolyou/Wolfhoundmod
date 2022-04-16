@@ -25,17 +25,21 @@ namespace wolfhoundmod
 	Texture2D originalFrost; 
 	Texture2D originalSDMG;
 	Texture2D originalEnchant;
+	Texture2D originalSpear;
+	Texture2D originalAdamantite;
 
 	public static Mod TerrariaOverhaul;
 
 	public override void Load() 
 	{
             if (!Main.dedServ) {
+		originalSpear = Main.itemTexture[ItemID.Spear];
                 Main.itemTexture[ItemID.Spear] = GetTexture("Items/wooden_spear"); // Now we change it
 		originalIceblade = Main.itemTexture[ItemID.IceBlade];
 		Main.itemTexture[ItemID.IceBlade] = GetTexture("Items/1"); // Now we change it
 		originalFrost = Main.itemTexture[ItemID.Frostbrand];
 		Main.itemTexture[ItemID.Frostbrand] = GetTexture("Items/frostbrand"); // Now we change it
+		originalAdamantite = Main.itemTexture[ItemID.AdamantiteSword];
 		Main.itemTexture[ItemID.AdamantiteSword] = GetTexture("Items/adamantite_sword"); // Now we change it
 		originalInflux = Main.itemTexture[ItemID.InfluxWaver];
 		Main.itemTexture[ItemID.InfluxWaver] = GetTexture("Items/influx_waver"); // Now we change it
@@ -58,7 +62,9 @@ namespace wolfhoundmod
 		Main.itemTexture[ItemID.IceBlade] = originalIceblade;
 		Main.itemTexture[ItemID.Frostbrand] = originalFrost; 
 		Main.itemTexture[ItemID.SDMG] = originalSDMG;
-		Main.itemTexture[ItemID.EnchantedSword] = originalEnchant;				
+		Main.itemTexture[ItemID.EnchantedSword] = originalEnchant;
+		Main.itemTexture[ItemID.Spear] = originalSpear;
+		Main.itemTexture[ItemID.AdamantiteSword] = originalAdamantite;							
         }
 		public override void AddRecipes() 
 		{

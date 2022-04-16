@@ -149,7 +149,7 @@ namespace wolfhoundmod.NPCs
 		nextSlot++;
 		shop.item[nextSlot].SetDefaults(ItemID.MagicMirror);
 		nextSlot++;
-		if (NPC.downedBoss1){
+		if (NPC.downedBoss1 && !Main.hardMode){
 			shop.item[nextSlot].SetDefaults(ItemID.WoodenCrate);
 			nextSlot++;
 			shop.item[nextSlot].SetDefaults(mod.ItemType("sand_slasher"));
@@ -159,7 +159,7 @@ namespace wolfhoundmod.NPCs
 			shop.item[nextSlot].SetDefaults(mod.ItemType("dune_splicer"));
 			nextSlot++;
 			}
-		if (NPC.downedBoss2){
+		if (NPC.downedBoss2 && !Main.hardMode){
 			shop.item[nextSlot].SetDefaults(ModContent.ItemType<coal>());
 			nextSlot++;
 			shop.item[nextSlot].SetDefaults(ModContent.ItemType<opal_staff>());
