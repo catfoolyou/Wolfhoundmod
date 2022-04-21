@@ -42,14 +42,14 @@ namespace wolfhoundmod.NPCs.Bosses
 				else if(choice == 3)
 					Item.NewItem(npc.getRect(), ItemID.BookStaff);
 				else if(choice == 4)
-					Item.NewItem(npc.getRect(), ItemID.MonkStaffT2);
+					Item.NewItem(npc.getRect(), ItemID.OnyxBlaster);
 			}
 		if (Main.rand.Next(1) == 0)
             		{
 				Item.NewItem(npc.getRect(), ModContent.ItemType<wulfrum_bar>(), Main.rand.Next(50, 60));
 				Item.NewItem(npc.getRect(), ItemID.SoulofNight, Main.rand.Next(15, 18));
 			}
-		if (Main.rand.Next(10) == 0)
+		if (Main.rand.Next(5) == 0)
             		{
 				Item.NewItem(npc.getRect(), ItemID.Uzi);
 			}

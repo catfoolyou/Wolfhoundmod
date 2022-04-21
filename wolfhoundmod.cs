@@ -170,14 +170,6 @@ namespace wolfhoundmod
             		recipe.SetResult(ItemID.Drax);
             		recipe.AddRecipe(); 
 
-			
-			recipe = new ModRecipe(this);
-			recipe.AddIngredient(ModContent.ItemType<basic_ar>());
-			recipe.AddIngredient(ItemID.SoulofMight, 20);
-			recipe.AddTile(134);
-			recipe.SetResult(ItemID.Uzi);
-			recipe.AddRecipe();
-
 			recipe = new ModRecipe(this);
 			recipe.AddIngredient(ModContent.ItemType<true_crimsaber>());
 			recipe.AddIngredient(ItemID.TrueExcalibur);
