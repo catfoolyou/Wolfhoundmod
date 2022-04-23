@@ -46,7 +46,7 @@ namespace wolfhoundmod.NPCs.Bosses
 			}
 		if (Main.rand.Next(1) == 0)
             		{
-				Item.NewItem(npc.getRect(), ModContent.ItemType<wulfrum_bar>(), Main.rand.Next(50, 60));
+				Item.NewItem(npc.getRect(), ModContent.ItemType<wulfrum_bar>(), Main.rand.Next(20, 30));
 				Item.NewItem(npc.getRect(), ItemID.SoulofNight, Main.rand.Next(15, 18));
 			}
 		if (Main.rand.Next(5) == 0)

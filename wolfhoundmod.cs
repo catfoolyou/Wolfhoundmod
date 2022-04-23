@@ -154,9 +154,9 @@ namespace wolfhoundmod
 
 			recipe = new ModRecipe(this);
 			recipe.AddIngredient(ItemID.Excalibur);
-			recipe.AddIngredient(ItemID.SoulofMight);
-			recipe.AddIngredient(ItemID.SoulofSight);
-			recipe.AddIngredient(ItemID.SoulofFright);
+			recipe.AddIngredient(ItemID.SoulofMight, 20);
+			recipe.AddIngredient(ItemID.SoulofSight, 20);
+			recipe.AddIngredient(ItemID.SoulofFright, 20);
             		recipe.AddTile(134);
             		recipe.SetResult(ItemID.TrueExcalibur);
             		recipe.AddRecipe(); 

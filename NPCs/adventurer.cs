@@ -180,6 +180,8 @@ namespace wolfhoundmod.NPCs
 		if (NPC.downedMechBossAny){
 			shop.item[nextSlot].SetDefaults(ItemID.TitaniumOre);
 			nextSlot++;
+			shop.item[nextSlot].SetDefaults(ItemID.CrownosWings);
+			nextSlot++;
 		}
 		
         }

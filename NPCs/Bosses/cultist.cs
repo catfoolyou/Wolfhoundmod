@@ -27,8 +27,8 @@ namespace wolfhoundmod.NPCs.Bosses
 
         public override void SetDefaults()
         {
-		animationType = NPCID.Wraith;
-		npc.lifeMax = 258000;
+		animationType = NPCID.CultistBoss;
+		npc.lifeMax = 25800;
 		npc.damage = 70;
 		npc.boss = true;
             	npc.defense = 26;
@@ -40,6 +40,13 @@ namespace wolfhoundmod.NPCs.Bosses
             	npc.HitSound = SoundID.NPCHit52;
             	npc.noGravity = true;
             	npc.buffImmune[31] = true;
+		npc.buffImmune[24] = true;
+		npc.buffImmune[44] = true;
+		npc.buffImmune[20] = true;
+		npc.buffImmune[69] = true;
+		npc.buffImmune[39] = true;
+		npc.buffImmune[153] = true;
+		npc.buffImmune[70] = true;
             	npc.noTileCollide = true;
             	npc.DeathSound = SoundID.NPCDeath6;
 		npc.value = Item.buyPrice(0, 0, 5, 0);
@@ -71,7 +78,7 @@ namespace wolfhoundmod.NPCs.Bosses
             }
 
 		Timer++;
-				if (Timer > 20) {
+				if (Timer > 40) {
 				Vector2 position = npc.Center;
     				Vector2 targetPosition = Main.player[npc.target].Center;
     				Vector2 direction = targetPosition - position;
@@ -81,20 +88,7 @@ namespace wolfhoundmod.NPCs.Bosses
     				int damage = npc.damage / 10; //If the projectile is hostile, the damage passed into NewProjectile will be applied doubled, and quadrupled if expert mode, so keep that in mind when balancing projectiles
    				Projectile.NewProjectile(position, direction * speed, type, damage, 0f, Main.myPlayer);
 				Timer = 0;
-			}
-		spawnTimer++;
-				if (Timer > 60) {
-				Vector2 position = npc.Center;
-    				Vector2 targetPosition = Main.player[npc.target].Center;
-    				Vector2 direction = targetPosition - position;
-    				direction.Normalize();
-    				float speed = 10f;
-    				int type = ProjectileID.DD2DarkMageRaise;
-    				int damage = npc.damage / 10; //If the projectile is hostile, the damage passed into NewProjectile will be applied doubled, and quadrupled if expert mode, so keep that in mind when balancing projectiles
-   				Projectile.NewProjectile(position, direction * speed, type, damage, 0f, Main.myPlayer);
-				spawnTimer = 0;
-			}		
-		
+			}	
 
 
             Vector2 vector2 = new Vector2(npc.Center.X, npc.Center.Y);
@@ -114,7 +108,7 @@ namespace wolfhoundmod.NPCs.Bosses
 		for (int k = 0; k < damage / npc.lifeMax * 100.0; k++) {
 			Dust.NewDust(npc.position, npc.width, npc.height, 5, hitDirection, -1f, 0, default(Color), 1f);
 		}
-		if (Main.netMode != NetmodeID.MultiplayerClient && Main.rand.NextFloat() < 0.6f) {
+		if (Main.netMode != NetmodeID.MultiplayerClient && Main.rand.NextFloat() < 0.15f) {
 			Vector2 spawnAt = npc.Center + new Vector2(0f, (float)npc.height / 2f);
 			NPC.NewNPC((int)spawnAt.X, (int)spawnAt.Y, NPCID.ShadowFlameApparition);
 		}
@@ -131,8 +125,8 @@ namespace wolfhoundmod.NPCs.Bosses
     				direction.Normalize();
     				float speed = 10f;
     				int type = ProjectileID.CultistBossLightningOrb;
-    				int damage = npc.damage / 10; //If the projectile is hostile, the damage passed into NewProjectile will be applied doubled, and quadrupled if expert mode, so keep that in mind when balancing projectiles
-   				Projectile.NewProjectile(position, direction * speed, type, damage, 0f, Main.myPlayer);
+    				int damage1 = npc.damage / 10; //If the projectile is hostile, the damage passed into NewProjectile will be applied doubled, and quadrupled if expert mode, so keep that in mind when balancing projectiles
+   				Projectile.NewProjectile(position, direction * speed, type, damage1, 0f, Main.myPlayer);
 
                			Gore.NewGore(npc.position, npc.velocity, 117, 1f);
 				Gore.NewGore(npc.position, npc.velocity, GoreID.ShadowflameApparation, 1f);
@@ -161,22 +155,18 @@ namespace wolfhoundmod.NPCs.Bosses
             }
         	if (Main.rand.Next(1) == 0)
             		{
-			int choice = Main.rand.Next(1,6);
+			int choice = Main.rand.Next(1,4);
 				if(choice == 1)
-					Item.NewItem(npc.getRect(), ModContent.ItemType<dune_splicer>());
+					Item.NewItem(npc.getRect(), ItemID.ShadowFlameHexDoll);
 				else if(choice == 2)
-					Item.NewItem(npc.getRect(), ModContent.ItemType<sand_slasher>());
+					Item.NewItem(npc.getRect(), ModContent.ItemType<deimos>());
 				else if(choice == 3)
-					Item.NewItem(npc.getRect(), ModContent.ItemType<scarab_bow>());
-				else if(choice == 4)
-					Item.NewItem(npc.getRect(), ModContent.ItemType<antlion_staff>());
-				else if(choice == 5)
-					Item.NewItem(npc.getRect(), ModContent.ItemType<storm_spear>());
+					Item.NewItem(npc.getRect(), ModContent.ItemType<phobos>());
 			}
 		if (Main.rand.Next(1) == 0)
             		{
-				Item.NewItem(npc.getRect(), ItemID.FossilOre, Main.rand.Next(10, 30));
-				Item.NewItem(npc.getRect(), ItemID.Amber, Main.rand.Next(5, 8));
+				Item.NewItem(npc.getRect(), ModContent.ItemType<wulfrum_bar>(), Main.rand.Next(20, 30));
+				Item.NewItem(npc.getRect(), ItemID.SoulofLight, Main.rand.Next(15, 18));
 			}
 	}
     }
