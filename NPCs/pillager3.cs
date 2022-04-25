@@ -24,7 +24,12 @@ namespace wolfhoundmod.NPCs
 		}
 
 		public override float SpawnChance(NPCSpawnInfo spawnInfo) {
-			return SpawnCondition.OverworldDaySlime.Chance * 0.5f;
+			if(!spawnInfo.player.ZoneDungeon && !spawnInfo.player.ZoneCorrupt && !spawnInfo.player.ZoneHoly && !spawnInfo.player.ZoneMeteor && !spawnInfo.player.ZoneJungle && !spawnInfo.player.ZoneSnow && !spawnInfo.player.ZoneCrimson && !spawnInfo.player.ZoneDesert && !spawnInfo.player.ZoneGlowshroom && !spawnInfo.player.ZoneUndergroundDesert && !spawnInfo.player.ZoneBeach){
+				return SpawnCondition.OverworldDaySlime.Chance;
+			}
+			else {
+				return SpawnCondition.OverworldDaySlime.Chance * 0f;
+			}
 		}
 
 		/*public override void HitEffect(int hitDirection, double damage) {
