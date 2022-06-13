@@ -1,4 +1,4 @@
 displayName = Wolfhound's Mod
 author = Catfoolyou
-version = 1.0.9
+version = 1.1.0
 weakReferences = TerrariaOverhaul
