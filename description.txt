@@ -1,2 +1,19 @@
 Wolfhound's Mod is a content/quality of life mod.
+Basically a mod that adds random stuff I want in the game.
+
+Content:
+Countless items, weapons, bosses and more are added into the game.
+Around 200 items,
+5 accessories and 8 armor sets,
+6 enemies (more to come) and 1 town NPC,
+7 bosses (and counting)
+
+QOL changes:
+Melee weapons autoswing overhauls,
+Minor changes to some guns and bows
+
+Full support for TerrariaOverhaul
+Planned support for Boss Checklist
+
 It is still in beta, so use at your own risk.
+See the Github for more updates.

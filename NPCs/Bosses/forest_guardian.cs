@@ -85,7 +85,9 @@ namespace wolfhoundmod.NPCs.Bosses
             		float velocityY = y * distance;
             		npc.velocity.X = (float)(((double)npc.velocity.X * 100.0 + (double)velocityX) / 101.0);
            		npc.velocity.Y = (float)(((double)npc.velocity.Y * 100.0 + (double)velocityY) / 101.0);
-            		npc.rotation = (float)Math.Atan2((double)velocityY, (double)velocityX) - 0.57f; //make it less tilted
+            		  // code for rotation
+            npc.rotation = npc.velocity.X * 0.05f;
+	    npc.spriteDirection = npc.direction;
 		}
 
 		public override bool PreNPCLoot() {
